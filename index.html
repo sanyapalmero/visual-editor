@@ -12,10 +12,10 @@
 <body>
 	<div class="main">
 		<div class="left-menu">
-			<p>Инструменты</p>
+			<h3>Инструменты</h3>
 			<ul class="tools">
-				<li><input type="button" value="Добавить текст" onclick="AddTextElememt(document.getElementById('colorselection').value);"></li>
-				<li><input type="button" value="Загрузить изображение"></li>
+				<li><p>Текст</p><input type="button" value="Добавить текст" onclick="AddTextElememt(document.getElementById('colorselection').value);"></li>
+				<li><p>Изображение</p><input type="file" onchange="LoadImage(this);"></li>
 				<li>
 					<p>Цвет фона</p>
 					<select id="colorselection" onchange="СhangeBackground(editorfield,value);">
@@ -154,11 +154,11 @@
 			</ul>
 		</div>
 		<div class="editor">
-			<p class="editor-label">Редактор</p>
+			<h2 class="editor-label">Редактор</h2>
 			<div id="editorfield" class="editor-field"></div>
 		</div>
 		<div class="right-menu">
-			<p>Настройки</p>
+			<h3>Настройки</h3>
 			<p>Примечание</p>
 			<textarea></textarea></br>
 			<button>Отправить</button>

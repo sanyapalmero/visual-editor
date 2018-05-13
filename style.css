@@ -21,7 +21,7 @@
     height: 500px;
 }
 .editor-label{
-	margin-left: 450px;
+	margin-left: 400px;
 }
 #draggable1 {
 	font-size: x-large; border: thin solid black;
@@ -32,6 +32,18 @@
 	width: 11em; text-align: center; padding:10px
 }
 #draggable3 {
+	font-size: x-large; border: thin solid black;
+	width: 11em; text-align: center; padding:10px
+}
+#dragimage1 {
+	font-size: x-large; border: thin solid black;
+	width: 11em; text-align: center; padding:10px
+}
+#dragimage2 {
+	font-size: x-large; border: thin solid black;
+	width: 11em; text-align: center; padding:10px
+}
+#dragimage3 {
 	font-size: x-large; border: thin solid black;
 	width: 11em; text-align: center; padding:10px
 }

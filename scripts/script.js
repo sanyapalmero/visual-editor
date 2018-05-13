@@ -1,18 +1,19 @@
 count = 0;
-function AddTextElememt()
+maxtextelems = 3;
+function AddTextElememt(color)
 {  
 	count++;
-	if(count <= 3)
+	if(count <= maxtextelems)
 	{
 		var doc = document;
 		var elem = doc.createElement('div');
 		elem.setAttribute("id", "draggable"+count+"");
-		elem.setAttribute("class", "ui-widget ui-corner-all ui-state-error");
+		elem.setAttribute("class", "ui-widget");
 		elem.setAttribute("style", "position: relative;");
-		var wrapped = doc.getElementById('editor-text');
-	    elem.innerHTML = "<textarea id=\"textarea"+count+"\" style=\"border: none;\" class=\"ui-widget ui-corner-all ui-state-error\">Редактируемый текст</textarea>";
+		var wrapped = doc.getElementById('editorfield');
+	    elem.innerHTML = "<textarea id=\"textarea"+count+"\" style=\"border: none; background-color:"+color+"\" class=\"ui-widget\">Редактируемый текст</textarea>";
 	    wrapped.appendChild(elem);
-	    for(i=0;i<=3;i++)
+	    for(i=0;i<=maxtextelems;i++)
 	    {
 	    	$("#draggable"+i+"")
 	    	.draggable({
@@ -31,3 +32,12 @@ function AddTextElememt()
 		alert("Количество блоков текста превышено");
 	}
 }  
+
+function СhangeBackground(id,color)
+{
+	id.style.backgroundColor=color;
+	for(i=0;i<=maxtextelems;i++)
+    {
+    	$("#textarea"+i+"").css('backgroundColor', color);
+	}
+}

@@ -14,13 +14,23 @@
 		<div class="left-menu">
 			<p>Инструменты</p>
 			<ul class="tools">
-				<li><input type="button" value="Добавить текст" onclick="AddTextElememt();"></li>
+				<li><input type="button" value="Добавить текст" onclick="AddTextElememt(document.getElementById('colorselection').value);"></li>
 				<li><input type="button" value="Загрузить изображение"></li>
+				<li>
+					<p>Цвет фона</p>
+					<select id="colorselection" onchange="СhangeBackground(editorfield,value);">
+					   <option value="white">Белый</option>
+					   <option value="red">Красный</option>
+					   <option value="blue">Синий</option>
+					   <option value="green">Зеленый</option>
+					   <option value="yellow">Желтый</option>
+					</select>
+				</li>
 			</ul>
 		</div>
 		<div class="editor">
 			<p class="editor-label">Редактор</p>
-			<div id="editor-text" class="editor-field"></div>
+			<div id="editorfield" class="editor-field"></div>
 		</div>
 		<div class="right-menu">
 			<p>Настройки</p>

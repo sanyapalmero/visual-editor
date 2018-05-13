@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Редактор</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="scripts/jquery-ui.css">
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery-ui.min.js"></script>
+	<script src="scripts/script.js"></script>
+</head>
+<body>
+	<div class="main">
+		<div class="left-menu">
+			<p>Инструменты</p>
+			<ul class="tools">
+				<li><input type="button" value="Добавить текст" onclick="AddTextElememt();"></li>
+				<li><input type="button" value="Загрузить изображение"></li>
+			</ul>
+		</div>
+		<div class="editor">
+			<p class="editor-label">Редактор</p>
+			<div id="editor-text" class="editor-field"></div>
+		</div>
+		<div class="right-menu">
+			<p>Настройки</p>
+			<p>Примечание</p>
+			<textarea></textarea></br>
+			<button>Отправить</button>
+		</div>
+	</div>
+</body>	
+</html>

@@ -1,0 +1,37 @@
+.left-menu{
+	float: left; 
+}
+.editor{
+	display: inline-block; 
+	width: 33%; 
+}
+.right-menu{
+	float: right; 
+}
+.tools{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.editor-field{
+	margin-left: 20%;
+	background: #F5F5F5;
+	border: 2px solid #000;
+	width: 900px;
+    height: 500px;
+}
+.editor-label{
+	margin-left: 500px;
+}
+#draggable1 {
+	font-size: x-large; border: thin solid black;
+	width: 11em; text-align: center; padding:10px
+}
+#draggable2 {
+	font-size: x-large; border: thin solid black;
+	width: 11em; text-align: center; padding:10px
+}
+#draggable3 {
+	font-size: x-large; border: thin solid black;
+	width: 11em; text-align: center; padding:10px
+}

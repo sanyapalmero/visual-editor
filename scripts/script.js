@@ -46,20 +46,20 @@ imagecount = 0;
 maximageelems = 3;
 function LoadImage(f) {
 	imagecount++;
-	if(imagecount <= maxtextelems)
+	if(imagecount <= maximageelems)
 	{
 		var doc = document;
 		var elem = doc.createElement('div');
 		elem.setAttribute("id", "image"+imagecount+"");
 		elem.setAttribute("class", "ui-widget");
-		elem.setAttribute("style", "position: relative; width: 200px; height: 20px;");
+		elem.setAttribute("style", "border:2px solid #000; width: 223px; height: 223px;");
 	    var fls = f.files;
 	    if(!fls || !fls.length || !FileReader){return;}
 	    var fr = new FileReader();
 	    fr.onload = function() {
 	        var im = new Image();
 	        im.src = this.result;
-	        elem.innerHTML = "<img id=\"dragimage"+imagecount+"\" class=\"ui-widget\" style=\"border:2px solid #000; width: 200px; height: 200px; position: relative;\" src="+im.src+">";
+	        elem.innerHTML = "<img id=\"dragimage"+imagecount+"\" class=\"ui-widget\" style=\"text-align: center; border:none; width: 200px; height: 200px; position: relative;\" src="+im.src+">";
 	        var wrapped = doc.getElementById('editorfield');
 	        wrapped.appendChild(elem);
 	        for(i=0;i<=maximageelems;i++)

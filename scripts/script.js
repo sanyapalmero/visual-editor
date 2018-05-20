@@ -1,5 +1,6 @@
+maxelems = 3
 count = 0;
-maxtextelems = 3;
+maxtextelems = maxelems;
 function AddTextElememt(color)
 {  
 	count++;
@@ -11,7 +12,7 @@ function AddTextElememt(color)
 		elem.setAttribute("class", "ui-widget");
 		elem.setAttribute("style", "position: relative;");
 		var wrapped = doc.getElementById('editorfield');
-	    elem.innerHTML = "<textarea id=\"textarea"+count+"\" style=\"border: none; background-color:"+color+"\" class=\"ui-widget\">Редактируемый текст</textarea>";
+	    elem.innerHTML = "<textarea id=\"textarea"+count+"\" style=\"resize:none; border: none; background-color:"+color+"\" class=\"ui-widget\">Редактируемый текст</textarea>";
 	    wrapped.appendChild(elem);
 	    for(i=0;i<=maxtextelems;i++)
 	    {
@@ -43,7 +44,7 @@ function СhangeBackground(id,color)
 }
 
 imagecount = 0;
-maximageelems = 3;
+maximageelems = maxelems;
 function LoadImage(f) {
 	imagecount++;
 	if(imagecount <= maximageelems)
@@ -81,5 +82,21 @@ function LoadImage(f) {
 	else
 	{
 		alert("Количество картинок превышено");
+	}
+}
+
+function CheckBox1()
+{
+	if($("#preview").attr('checked')){
+		for(i=0;i<=maxtextelems;i++){
+			$("#draggable"+i+"").css('border','none');
+			$("#image"+i+"").css('border','none');
+		}
+	}
+	else{
+		for(i=0;i<=maxtextelems;i++){
+			$("#draggable"+i+"").css('border','');
+			$("#image"+i+"").css('border','2px solid #000');
+		}
 	}
 }

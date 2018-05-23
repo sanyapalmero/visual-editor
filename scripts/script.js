@@ -7,8 +7,8 @@ var imagecount = 0;////variable for LoadImage function for creating elements wit
 var fsize = 20;//basic font-size
 var ffamily = "Arial";//basic font-family
 
-//create new text element
-function AddTextElememt(color)
+//create new text element and all necessary select tags
+function AddElememt(color)//color - var for creating textarea with this color
 {
 	count++;
 	if(count <= maxtextelems)
@@ -21,7 +21,7 @@ function AddTextElememt(color)
 		elem.setAttribute("style", "position: relative;");
 		var wrapped = doc.getElementById('editorfield');
 		elem.innerHTML = "<textarea id=\"textarea"+count+"\" \
-		onclick=\"EditTextArea("+count+");\" \
+		onclick=\"UpdateSelectValues("+count+");\" \
 		style=\"font-family:"+ffamily+"; \
 				font-size:"+fsize+"px; \
 				border: none; \
@@ -41,7 +41,7 @@ function AddTextElememt(color)
 		        handles: "all"
 		    });
 		}
-		//create tools for change font-family and font-size
+		//create tools for change font-family, font-size, color
 		var label = "Блок "+count+"";
 		$("#texttools").append(label);
 		var select1 = doc.createElement('select');
@@ -133,7 +133,7 @@ function LoadImage(f) {
 }
 
 //preview function - deactivate all borders
-function CheckBox1()
+function Preview()
 {
 	if($("#preview").attr('checked')){
 		for(i=0;i<=maxtextelems;i++){
@@ -154,7 +154,7 @@ function CheckBox1()
 }
 
 //this function update select tags if values are different
-function EditTextArea(i){
+function UpdateSelectValues(i){
 	var doc = document;
 	//get values from textarea
 	var fontsize1 = doc.getElementById("textarea"+i+"").style.fontFamily;
@@ -171,26 +171,28 @@ function GetSelectId(){
 	id2 = parseInt(id);//get number from id
 	//using this num change css styles
 	$("#"+id2+"fs").change(function() {
-		$("#textarea"+id2+"").css("font-family", $(this).val());
+		$("#textarea"+id2+"").css("font-family", $(this).val());//update font-family
 	});
 	$("#"+id2+"size").change(function() {
-		$("#textarea"+id2+"").css("font-size", $(this).val());
+		$("#textarea"+id2+"").css("font-size", $(this).val());//update font-size
 	});
 	$("#"+id2+"col").change(function() {
-		$("#textarea"+id2+"").css("color", $(this).val());
+		$("#textarea"+id2+"").css("color", $(this).val());//update text color
 	});
 });
 }
 
+//create .png image from editor field
 function RenderImage(){
-html2canvas(document.querySelector("#editorfield")).then(canvas => {
-	var name = "image.png";
-	const a = document.createElement("a");
-	document.body.appendChild(a);
-	a.style = "display: none";
-	a.href = canvas.toDataURL();
-	a.download = name;
-	a.click();
-	document.body.removeChild(a);
-});
+	var doc = document;
+	html2canvas(doc.querySelector("#editorfield")).then(canvas => {
+		var name = "image.png";
+		const a = doc.createElement("a");
+		doc.body.appendChild(a);
+		a.style = "display: none";
+		a.href = canvas.toDataURL();
+		a.download = name;
+		a.click();
+		doc.body.removeChild(a);
+	});
 }

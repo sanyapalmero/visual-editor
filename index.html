@@ -14,7 +14,7 @@
 		<div class="left-menu">
 			<h3>Инструменты</h3>
 			<ul class="tools">
-				<li><p>Текст</p><input type="button" value="Добавить текст" onclick="AddTextElememt(document.getElementById('colorselection').value);"></li>
+				<li><p>Текст</p><input type="button" value="Добавить текст" onclick="AddElememt(document.getElementById('colorselection').value);"></li>
 				<li><p>Изображение</p><input type="file" onchange="LoadImage(this);"></li>
 				<li>
 					<p>Цвет фона</p>
@@ -156,7 +156,7 @@
 					<div class="texttools" id="texttools" onclick="GetSelectId();"></div>
 				</li>
 				<li>
-					<p>Предварительный просмотр<input type="checkbox" onclick="CheckBox1();" name="1" id="preview" value="2"></p>
+					<p>Предварительный просмотр<input type="checkbox" onclick="Preview();" name="1" id="preview" value="2"></p>
 				</li>
 			</ul>
 		</div>

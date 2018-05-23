@@ -59,6 +59,19 @@ function AddTextElememt(color)
 							<option value=\"20px\">20px</option>\
 							<option value=\"30px\">30px</option>";
 		wrapped.appendChild(select2);
+		var select3 = doc.createElement('select');
+		select3.setAttribute("id", ""+count+"col");
+		select3.innerHTML = "<option value=\"black\" style=\"background-color: black;\"></option>\
+							<option value=\"red\" style=\"background-color: red;\"></option>\
+							<option value=\"white\" style=\"background-color: white;\"></option>\
+							<option value=\"orange\" style=\"background-color: orange;\"></option>\
+							<option value=\"yellow\" style=\"background-color: yellow;\"></option>\
+							<option value=\"lime\" style=\"background-color: lime;\"></option>\
+							<option value=\"aqua\" style=\"background-color: aqua;\"></option>\
+							<option value=\"blue\" style=\"background-color: blue;\"></option>\
+							<option value=\"magenta\" style=\"background-color: magenta;\"></option>\
+							<option value=\"crimson\" style=\"background-color: crimson;\"></option>";
+		wrapped.appendChild(select3);
 		var br = "</br>";
 		$("#texttools").append(br);
 	}
@@ -162,6 +175,9 @@ function GetSelectId(){
 	});
 	$("#"+id2+"size").change(function() {
 		$("#textarea"+id2+"").css("font-size", $(this).val());
+	});
+	$("#"+id2+"col").change(function() {
+		$("#textarea"+id2+"").css("color", $(this).val());
 	});
 });
 }

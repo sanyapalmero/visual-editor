@@ -126,6 +126,7 @@ function CheckBox1()
 		for(i=0;i<=maxtextelems;i++){
 			$("#draggable"+i+"").css('border','none');
 			$("#image"+i+"").css('border','none');
+			$("#editorfield").css('border','none');
 			$("#textarea"+i+"").css('resize','none');
 		}
 	}
@@ -133,6 +134,7 @@ function CheckBox1()
 		for(i=0;i<=maxtextelems;i++){
 			$("#draggable"+i+"").css('border','');
 			$("#image"+i+"").css('border','2px solid #000');
+			$("#editorfield").css('border','2px solid #000');
 			$("#textarea"+i+"").css('resize','');
 		}
 	}
@@ -161,5 +163,18 @@ function GetSelectId(){
 	$("#"+id2+"size").change(function() {
 		$("#textarea"+id2+"").css("font-size", $(this).val());
 	});
+});
+}
+
+function RenderImage(){
+html2canvas(document.querySelector("#editorfield")).then(canvas => {
+	var name = "image.png";
+	const a = document.createElement("a");
+	document.body.appendChild(a);
+	a.style = "display: none";
+	a.href = canvas.toDataURL();
+	a.download = name;
+	a.click();
+	document.body.removeChild(a);
 });
 }

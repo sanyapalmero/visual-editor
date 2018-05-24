@@ -1,12 +1,12 @@
 .left-menu{
-	float: left; 
+	float: left;
 }
 .editor{
-	display: inline-block; 
-	width: 33%; 
+	display: inline-block;
+	width: 33%;
 }
 .right-menu{
-	float: right; 
+	float: right;
 }
 .tools{
 	padding: 0;
@@ -23,27 +23,21 @@
 .editor-label{
 	margin-left: 400px;
 }
-#draggable1 {
-	font-size: x-large; border: thin solid black;
-	width: 11em; text-align: center; padding:10px
+.textblock {
+	font-size: x-large;
+	border: thin solid black;
+	width: 11em;
+	text-align: center;
+	padding:10px;
+	position: relative;
 }
-#draggable2 {
-	font-size: x-large; border: thin solid black;
-	width: 11em; text-align: center; padding:10px
+.imageblock {
+	width: 11em;
+	text-align: center;
+	border:2px solid #000;
+	width: 223px;
+	height: 223px;
 }
-#draggable3 {
-	font-size: x-large; border: thin solid black;
-	width: 11em; text-align: center; padding:10px
-}
-#dragimage1 {
-	font-size: x-large; border: thin solid black;
-	width: 11em; text-align: center; padding:10px
-}
-#dragimage2 {
-	font-size: x-large; border: thin solid black;
-	width: 11em; text-align: center; padding:10px
-}
-#dragimage3 {
-	font-size: x-large; border: thin solid black;
-	width: 11em; text-align: center; padding:10px
+.image {
+	margin: 10px;
 }

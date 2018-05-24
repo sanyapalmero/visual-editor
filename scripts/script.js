@@ -6,19 +6,19 @@ var count = 0;//variable for AddTextElement function for creating elements with 
 var imagecount = 0;////variable for LoadImage function for creating elements with different id | must be 0
 var fsize = 20;//basic font-size
 var ffamily = "Arial";//basic font-family
+var delnum = 0;//for delete elements | must be 0
+var delnum2 = 0;//for delete elements | must be 0
 
 //create new text element and all necessary select tags
-function AddElememt(color)//color - var for creating textarea with this color
-{
-	count++;
-	if(count <= maxtextelems)
-	{
+function AddElememt(color){//color - var for creating textarea with this color
+	if(count < maxtextelems){
+		count++;
+		delnum++;
 		//create textarea
 		var doc = document;
 		var elem = doc.createElement('div');
 		elem.setAttribute("id", "draggable"+count+"");
-		elem.setAttribute("class", "ui-widget");
-		elem.setAttribute("style", "position: relative;");
+		elem.setAttribute("class", "textblock");
 		var wrapped = doc.getElementById('editorfield');
 		elem.innerHTML = "<textarea id=\"textarea"+count+"\" \
 		onclick=\"UpdateSelectValues("+count+");\" \
@@ -42,7 +42,10 @@ function AddElememt(color)//color - var for creating textarea with this color
 		    });
 		}
 		//create tools for change font-family, font-size, color
-		var label = "Блок "+count+"";
+		var label = doc.createElement('div');
+		label.setAttribute("id",""+count+"label");
+		label.setAttribute("style","display:inline-block;");
+		label.innerHTML = "Блок "+count+"";
 		$("#texttools").append(label);
 		var select1 = doc.createElement('select');
 		select1.setAttribute("id", ""+count+"fs");
@@ -82,11 +85,9 @@ function AddElememt(color)//color - var for creating textarea with this color
 }
 
 //change background color in field and textarea
-function СhangeBackground(id,color)
-{
+function СhangeBackground(id,color){
 	id.style.backgroundColor=color;
-	for(i=0;i<=maxtextelems;i++)
-    {
+	for(i=0;i<=maxtextelems;i++){
     	$("#textarea"+i+"").css('backgroundColor', color);
 	}
 }
@@ -94,24 +95,22 @@ function СhangeBackground(id,color)
 //for uploading image to field
 function LoadImage(f) {
 	imagecount++;
-	if(imagecount <= maximageelems)
-	{
+	if(imagecount <= maximageelems){
+		delnum2++;
 		var doc = document;
 		var elem = doc.createElement('div');
 		elem.setAttribute("id", "image"+imagecount+"");
-		elem.setAttribute("class", "ui-widget");
-		elem.setAttribute("style", "border:2px solid #000; width: 223px; height: 223px;");
+		elem.setAttribute("class", "imageblock");
 	    var fls = f.files;
 	    if(!fls || !fls.length || !FileReader){return;}
 	    var fr = new FileReader();
 	    fr.onload = function() {
 	        var im = new Image();
 	        im.src = this.result;
-	        elem.innerHTML = "<img id=\"dragimage"+imagecount+"\" class=\"ui-widget\" style=\"text-align: center; border:none; width: 200px; height: 200px; position: relative;\" src="+im.src+">";
+	        elem.innerHTML = "<img id=\"dragimage"+imagecount+"\" class=\"image\" style=\"text-align: center; border:none; width: 200px; height: 200px; position: relative;\" src="+im.src+">";
 	        var wrapped = doc.getElementById('editorfield');
 	        wrapped.appendChild(elem);
-	        for(i=0;i<=maximageelems;i++)
-		    {
+	        for(i=0;i<=maximageelems;i++){
 		    	$("#image"+i+"")
 		    	.draggable({
 		    		containment: "parent"
@@ -125,16 +124,13 @@ function LoadImage(f) {
 		    }
 	    };
 	    fr.readAsDataURL(fls[0]);
-	}
-	else
-	{
+	}else{
 		alert("Количество картинок превышено");
 	}
 }
 
 //preview function - deactivate all borders
-function Preview()
-{
+function Preview(){
 	if($("#preview").attr('checked')){
 		for(i=0;i<=maxtextelems;i++){
 			$("#draggable"+i+"").css('border','none');
@@ -142,8 +138,7 @@ function Preview()
 			$("#editorfield").css('border','none');
 			$("#textarea"+i+"").css('resize','none');
 		}
-	}
-	else{
+	}else{
 		for(i=0;i<=maxtextelems;i++){
 			$("#draggable"+i+"").css('border','');
 			$("#image"+i+"").css('border','2px solid #000');
@@ -195,4 +190,46 @@ function RenderImage(){
 		a.click();
 		doc.body.removeChild(a);
 	});
+}
+
+//function for clearing bloks
+function RemoveElements(delnum){
+	$("#draggable"+delnum+"").remove();
+	$("#"+delnum+"fs").remove();
+	$("#"+delnum+"size").remove();
+	$("#"+delnum+"col").remove();
+	$("#"+delnum+"label").remove();
+	if(delnum == 1){
+		$('.texttools br').remove();
+		count = 0;
+	}
+}
+
+//function for delete last text block
+function DeleteLastText(){
+	RemoveElements(delnum);
+	delnum--;
+	if(count != 0){
+		count--;
+	}else{
+		count = 0;
+	}
+}
+
+//delete last image
+function DeleteLastImage(){
+	$("#image"+delnum2+"").remove();
+	delnum2--;
+	if(imagecount != 0){
+		imagecount--;
+	}else{
+		imagecount = 0;
+	}
+}
+
+//clear all elements on field
+function DeleteAll(){
+	$("#editorfield").empty();
+	$(".texttools").empty();
+	count=0;
 }

@@ -1,5 +1,5 @@
 //settings
-var maxelems = 3//max text and img elements on editor
+var maxelems = 6//max text and img elements on editor
 var maxtextelems = maxelems;//var for control count text elems | can be any number or var maxelems
 var maximageelems = maxelems;//var for control count img elems | can be any number or var maxelems
 var count = 0;//variable for AddTextElement function for creating elements with different id | must be 0

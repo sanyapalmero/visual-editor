@@ -19,6 +19,9 @@
 	border: 2px solid #000;
 	width: 900px;
     height: 500px;
+    /*overflow: hidden;
+    display: flex;
+    justify-content: space-between;*/
 }
 .editor-label{
 	margin-left: 400px;
@@ -30,13 +33,16 @@
 	text-align: center;
 	padding:10px;
 	position: relative;
+	overflow:hidden;
 }
 .imageblock {
-	width: 11em;
 	text-align: center;
 	border:2px solid #000;
-	width: 223px;
+	/*height: 223px;*/
+	/*width: 32.5%;*/
 	height: 223px;
+	width: 223px;
+	display: inline-block;
 }
 .image {
 	margin: 10px;

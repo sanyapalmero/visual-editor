@@ -8,12 +8,15 @@ var fsize = 20;//basic font-size
 var ffamily = "Arial";//basic font-family
 var delnum = 0;//for delete elements | must be 0
 var delnum2 = 0;//for delete elements | must be 0
+var price = 0;
 
 //create new text element and all necessary select tags
 function AddElememt(color){//color - var for creating textarea with this color
 	if(count < maxtextelems){
 		count++;
 		delnum++;
+		price += 100;//inc price
+		UpdPrice();
 		//create textarea
 		var doc = document;
 		var elem = doc.createElement('div');
@@ -84,8 +87,14 @@ function AddElememt(color){//color - var for creating textarea with this color
 	}
 }
 
+var flag = 0;
 //change background color in field and textarea
 function СhangeBackground(id,color){
+	if(flag == 0){
+		price += 300;//inc price
+		UpdPrice();
+		flag = 1;
+	}
 	id.style.backgroundColor=color;
 	for(i=0;i<=maxtextelems;i++){
     	$("#textarea"+i+"").css('backgroundColor', color);
@@ -97,6 +106,8 @@ function LoadImage(f) {
 	imagecount++;
 	if(imagecount <= maximageelems){
 		delnum2++;
+		price += 200;//inc price
+		UpdPrice();
 		var doc = document;
 		var elem = doc.createElement('div');
 		elem.setAttribute("id", "image"+imagecount+"");
@@ -159,22 +170,40 @@ function UpdateSelectValues(i){
 	$("#"+i+"size :contains('"+size1+"')").attr("selected", "selected");
 }
 
+var flag2 = 0;
+var flag3 = 0;
+var flag4 = 0;
 //get id from select and set new font-size and font-family
 function GetSelectId(){
 	$('.texttools').live('click', function(e) {
-	var id = e.target.id;//here id it's string with letters and num, for example "1fs" or "1size"
-	id2 = parseInt(id);//get number from id
-	//using this num change css styles
-	$("#"+id2+"fs").change(function() {
-		$("#textarea"+id2+"").css("font-family", $(this).val());//update font-family
+		var id = e.target.id;//here id it's string with letters and num, for example "1fs" or "1size"
+		id2 = parseInt(id);//get number from id
+		//using this num change css styles
+		$("#"+id2+"fs").change(function() {
+			$("#textarea"+id2+"").css("font-family", $(this).val());//update font-family
+			if(flag2==0){
+				price += 50;//inc price
+				UpdPrice();
+				flag2 = 1;
+			}
+		});
+		$("#"+id2+"size").change(function() {
+			$("#textarea"+id2+"").css("font-size", $(this).val());//update font-size
+			if(flag3==0){
+				price += 50;//inc price
+				UpdPrice();
+				flag3 = 1;
+			}
+		});
+		$("#"+id2+"col").change(function() {
+			$("#textarea"+id2+"").css("color", $(this).val());//update text color
+			if(flag4==0){
+				price += 50;//inc price
+				UpdPrice();
+				flag4 = 1;
+			}
+		});
 	});
-	$("#"+id2+"size").change(function() {
-		$("#textarea"+id2+"").css("font-size", $(this).val());//update font-size
-	});
-	$("#"+id2+"col").change(function() {
-		$("#textarea"+id2+"").css("color", $(this).val());//update text color
-	});
-});
 }
 
 //create .png image from editor field
@@ -232,4 +261,30 @@ function DeleteAll(){
 	$("#editorfield").empty();
 	$(".texttools").empty();
 	count=0;
+}
+
+//get value from radio
+function CheckRadio(){
+	var adv1 = $('#adv1').attr('checked');
+	var adv2 = $('#adv2').attr('checked');
+	var adv3 = $('#adv3').attr('checked');
+	if(adv1 == true){
+		price += 1000;
+		UpdPrice();
+	}
+	else if(adv2 == true){
+		price += 2000;
+		UpdPrice();
+	}
+	else if(adv3 == true){
+		price += 3000;
+		UpdPrice();
+	}
+}
+
+//script for updating price
+function UpdPrice(){
+	var doc = document;
+	var p = doc.getElementById("price");
+	p.innerHTML = "Цена: "+price+"р.";
 }

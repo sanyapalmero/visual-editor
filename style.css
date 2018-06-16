@@ -47,3 +47,7 @@
 .image {
 	margin: 10px;
 }
+.price {
+	text-align: center;
+	clear: both;
+}

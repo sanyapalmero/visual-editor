@@ -168,10 +168,20 @@
 		<div class="editor">
 			<h2 class="editor-label">Редактор</h2>
 			<div id="editorfield" class="editor-field"></div>
+			<div class="price">
+				<h3 id="price">Цена: 0р.</h3>
+			</div>
 		</div>
 		<div class="right-menu">
 			<script src="scripts/html2canvas.js"></script>
 			<h3>Настройки</h3>
+			<p>Тип рекламы</p>
+			<input type="radio" id="adv1"name="adv" onclick="CheckRadio()" value="billboard">
+			<label for="adv1">Билборд</label></br>
+			<input type="radio" id="adv2"name="adv" onclick="CheckRadio()" value="signboard">
+			<label for="adv2">Вывеска</label></br>
+			<input type="radio" id="adv3"name="adv" onclick="CheckRadio()" value="lightbox">
+			<label for="adv3">Лайтбокс</label></br>
 			<p>Сохранить картинку</p>
 			<p>Формат .png</p>
 			<button onclick="RenderImage();">Сохранить</button>

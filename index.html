@@ -5,11 +5,30 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="scripts/jquery-ui.css">
+	<link rel="icon" type="image/png" href="img/icon.ico" />
 	<script src="scripts/jquery.min.js"></script>
 	<script src="scripts/jquery-ui.min.js"></script>
 	<script src="scripts/script.js"></script>
 </head>
 <body>
+	<div class="header">
+		<nav>
+			<ul class="header-links">
+				<li class="main-button"><a href="#">Главная</a></li>
+				<li class="adv-type1">
+					<a href="#">Билборд</a>
+					<ul>
+						<li><a href="#">100x100</a></li>
+						<li><a href="#">200x200</a></li>
+					</ul>
+				</li>
+				<li class="adv-type2"><a href="#">Вывеска</a></li>
+				<li class="adv-type3"><a href="#">Лайтбокс</a></li>
+				<li class="auth-button"><a href="#">Вход</a></li>
+				<li class="reg-button"><a href="#">Регистрация</a></li>
+			</ul>
+		</nav>
+	</div>
 	<div class="main">
 		<div class="left-menu">
 			<h3>Инструменты</h3>
@@ -19,7 +38,8 @@
 				<li>
 					<p>Цвет фона</p>
 					<select id="colorselection" onchange="СhangeBackground(editorfield,value);">
-						<option value="#F5F5F5" style="background-color: #F5F5F5;">Default</option>
+						<!--<option value="#F5F5F5" style="background-color: #F5F5F5;">Default</option>-->
+						<option value="white" style="background-color:white;">Белый</option>
 						<option value="black" style="background-color: black;">Черный</option>
 						<option value="dimgray" style="background-color: dimgray;">Тускло-серый</option>
 						<option value="gray" style="background-color: gray;">Серый</option>
@@ -27,7 +47,6 @@
 						<option value="lightgrey" style="background-color:lightgray;">Светло-серый</option>
 						<option value="gainsboro" style="background-color:gainsboro;">Гейнсборо</option>
 						<option value="whitesmoke" style="background-color:whitesmoke ;">Дымчатый</option>
-						<option value="white" style="background-color:white;">Белый</option>
 						<option value="snow" style="background-color:snow;">Снежный</option>
 						<option value="rosybrown" style="background-color:rosybrown;">Розово-коричневый</option>
 						<option value="lightcoral" style="background-color:lightcoral;">Светло-коралловый</option>
@@ -186,6 +205,9 @@
 			<p>Формат .png</p>
 			<button onclick="RenderImage();">Сохранить</button>
 		</div>
+	</div>
+	<div class="footer">
+		<!--coming soon-->
 	</div>
 </body>
 </html>

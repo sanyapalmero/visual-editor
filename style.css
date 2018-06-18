@@ -1,21 +1,117 @@
+body{
+	margin: 0;/*отступы со всех сторон отключены*/
+}
+
+.header{
+	margin: 0;
+}
+
+nav {
+	background-color: crimson;/*заливка nav'а*/
+}
+
+/*стили для ul 1ого уровня*/
+nav ul {
+	padding: 0;
+  	margin: 0;
+	list-style: none;
+	position: relative;
+}
+
+/*стили для li 1ого уровня*/
+nav ul li {
+	display:inline-block;
+	background-color: crimson;
+	}
+
+/*стили ссылок в шапке*/
+nav a {
+	display:block;
+	padding:0 10px;	
+	line-height: 60px;
+	text-decoration: none;
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+}
+
+/*стили ссылок при наведении*/
+nav a:hover { 
+	background-color: gold; 
+}
+
+/*выпадающие списки скрыты по умолчанию*/
+nav ul ul {
+	display: none;
+	position: absolute; 
+	
+}
+	
+/*отображение выпадающих списков при наведении*/
+nav ul li:hover > ul {
+	display:inherit;
+}
+	
+/*стили для выпадающего списка*/
+nav ul ul li {
+	width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+
+/*положения кнопок в шапке*/
+.reg-button{
+	float: right;
+}
+
+.auth-button{
+	float: right;
+}
+
+.adv-type1{
+	padding-left: 500px;
+}
+
+/*стили для футера*/
+.footer ul{
+	margin: 0; 
+}
+
+.footer {
+	margin: 0;
+	padding: 0;
+	height: 45px;
+	background-color: crimson;
+}
+
+.main{
+	background-color: #edeef0;;/*заливка главного фона*/
+}
+
 .left-menu{
 	float: left;
+	margin-left: 5px;
 }
+
 .editor{
 	display: inline-block;
 	width: 33%;
 }
+
 .right-menu{
 	float: right;
 }
+
 .tools{
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
+
 .editor-field{
 	margin-left: 5%;
-	background: #F5F5F5;
+	background: white;/*#F5F5F5*/
 	border: 2px solid #000;
 	width: 900px;
     height: 500px;
@@ -23,9 +119,11 @@
     display: flex;
     justify-content: space-between;*/
 }
+
 .editor-label{
-	margin-left: 400px;
+	margin-left: 5%;/*400px*/
 }
+
 .textblock {
 	font-size: x-large;
 	border: thin solid black;
@@ -35,6 +133,7 @@
 	position: relative;
 	overflow:hidden;
 }
+
 .imageblock {
 	text-align: center;
 	border:2px solid #000;
@@ -44,9 +143,11 @@
 	width: 223px;
 	display: inline-block;
 }
+
 .image {
 	margin: 10px;
 }
+
 .price {
 	text-align: center;
 	clear: both;

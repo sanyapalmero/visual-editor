@@ -11,7 +11,7 @@ var delnum2 = 0;//for delete elements | must be 0
 var price = 0;
 
 //create new text element and all necessary select tags
-function AddElememt(color){//color - var for creating textarea with this color
+function AddElememt(){
 	if(count < maxtextelems){
 		count++;
 		delnum++;
@@ -19,6 +19,8 @@ function AddElememt(color){//color - var for creating textarea with this color
 		UpdPrice();
 		//create textarea
 		var doc = document;
+		var field = doc.getElementById('editorfield');
+		var color = window.getComputedStyle(field).backgroundColor;//get color from field
 		var elem = doc.createElement('div');
 		elem.setAttribute("id", "draggable"+count+"");
 		elem.setAttribute("class", "textblock");
@@ -99,6 +101,7 @@ function СhangeBackground(id,color){
 	for(i=0;i<=maxtextelems;i++){
     	$("#textarea"+i+"").css('backgroundColor', color);
 	}
+	$('#colorselection').get(0).selectedIndex = 0;//set first select
 }
 
 //for uploading image to field
@@ -135,6 +138,7 @@ function LoadImage(f) {
 		    }
 	    };
 	    fr.readAsDataURL(fls[0]);
+	    $("#img-load").val('');//clear file after load
 	}else{
 		alert("Количество картинок превышено");
 	}
@@ -146,14 +150,12 @@ function Preview(){
 		for(i=0;i<=maxtextelems;i++){
 			$("#draggable"+i+"").css('border','none');
 			$("#image"+i+"").css('border','none');
-			$("#editorfield").css('border','none');
 			$("#textarea"+i+"").css('resize','none');
 		}
 	}else{
 		for(i=0;i<=maxtextelems;i++){
 			$("#draggable"+i+"").css('border','');
 			$("#image"+i+"").css('border','2px solid #000');
-			$("#editorfield").css('border','2px solid #000');
 			$("#textarea"+i+"").css('resize','');
 		}
 	}
@@ -208,17 +210,22 @@ function GetSelectId(){
 
 //create .png image from editor field
 function RenderImage(){
-	var doc = document;
-	html2canvas(doc.querySelector("#editorfield")).then(canvas => {
-		var name = "image.png";
-		const a = doc.createElement("a");
-		doc.body.appendChild(a);
-		a.style = "display: none";
-		a.href = canvas.toDataURL();
-		a.download = name;
-		a.click();
-		doc.body.removeChild(a);
-	});
+	var check = $('#preview').attr('checked');
+	if(check == true){
+		var doc = document;
+		html2canvas(doc.querySelector("#editorfield")).then(canvas => {
+			var name = "image.png";
+			const a = doc.createElement("a");
+			doc.body.appendChild(a);
+			a.style = "display: none";
+			a.href = canvas.toDataURL();
+			a.download = name;
+			a.click();
+			doc.body.removeChild(a);
+		});
+	}else{
+		alert("Перед загрузкой картинки необходимо включить предварительный просмотр");
+	}
 }
 
 //function for clearing bloks

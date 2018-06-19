@@ -9,6 +9,7 @@
 	<script src="scripts/jquery.min.js"></script>
 	<script src="scripts/jquery-ui.min.js"></script>
 	<script src="scripts/script.js"></script>
+	<script src="scripts/html2canvas.js"></script>
 </head>
 <body>
 	<div class="header">
@@ -31,143 +32,146 @@
 	</div>
 	<div class="main">
 		<div class="left-menu">
-			<h3>Инструменты</h3>
+			<h3 class="tools-label">Инструменты</h3>
 			<ul class="tools">
-				<li><p>Текст</p><input type="button" value="Добавить текст" onclick="AddElememt(document.getElementById('colorselection').value);"></li>
-				<li><p>Изображение</p><input type="file" onchange="LoadImage(this);"></li>
+				<li><input class="add-button" type="button" value="Добавить текст" onclick="AddElememt();"></li>
+				<li class="img-button">
+					<label for="img-load" class="load-button">
+						Загрузить изображение
+					</label>
+					<input id="img-load" type="file" onchange="LoadImage(this);">
+				</li>
 				<li>
-					<p>Цвет фона</p>
-					<select id="colorselection" onchange="СhangeBackground(editorfield,value);">
+					<select class="color-select" id="colorselection" onchange="СhangeBackground(editorfield,value);">
 						<!--<option value="#F5F5F5" style="background-color: #F5F5F5;">Default</option>-->
-						<option value="white" style="background-color:white;">Белый</option>
-						<option value="black" style="background-color: black;">Черный</option>
-						<option value="dimgray" style="background-color: dimgray;">Тускло-серый</option>
-						<option value="gray" style="background-color: gray;">Серый</option>
-						<option value="silver" style="background-color: silver;">Серебристый</option>
-						<option value="lightgrey" style="background-color:lightgray;">Светло-серый</option>
-						<option value="gainsboro" style="background-color:gainsboro;">Гейнсборо</option>
-						<option value="whitesmoke" style="background-color:whitesmoke ;">Дымчатый</option>
-						<option value="snow" style="background-color:snow;">Снежный</option>
-						<option value="rosybrown" style="background-color:rosybrown;">Розово-коричневый</option>
-						<option value="lightcoral" style="background-color:lightcoral;">Светло-коралловый</option>
-						<option value="brown" style="background-color:brown ;">Коричневый</option>
-						<option value="firebrick" style="background-color:firebrick ;">Кирпичный</option>
-						<option value="maroon" style="background-color:maroon ;">Густой красно-коричневый</option>
-						<option value="darkred" style="background-color:darkred ;">Тёмно-красный</option>
-						<option value="red" style="background-color: red;">Красный</option>
-						<option value="salmon" style="background-color:salmon ;">Лососевый</option>
-						<option value="mistyrose" style="background-color: mistyrose;">Туманно-розовый</option>
-						<option value="tomato" style="background-color:tomato ;">Томатный</option>
-						<option value="darksalmon" style="background-color:darksalmon ;">Тёмно-лососевый</option>
-						<option value="coral" style="background-color:coral ;">Коралловый</option>
-						<option value="orangered" style="background-color:orangered ;">Оранжево-красный</option>
-						<option value="lightsalmon" style="background-color:lightsalmon ;">Светло-лососевый</option>
-						<option value="sienna" style="background-color:sienna ;">Сиена</option>
-						<option value="seashell" style="background-color:seashell ;">Морской раковины</option>
-						<option value="saddlebrown" style="background-color:saddlebrown ;">Кожаного седла</option>
-						<option value="chocolate" style="background-color:chocolate ;">Шоколадный</option>
-						<option value="peachpuff" style="background-color:peachpuff ;">Персиковый</option>
-						<option value="sandybrown" style="background-color:sandybrown ;">Рыжеватый</option>
-						<option value="linen" style="background-color: linen;">Льняной</option>
-						<option value="bisque" style="background-color: bisque;">Бисквитный</option>
-						<option value="darkorange" style="background-color: darkorange;">Тёмно-оранжевый</option>
-						<option value="antiquewhite" style="background-color:antiquewhite ;">Древний белый</option>
-						<option value="tan" style="background-color:tan ;">Дубильной коры</option>
-						<option value="burlywood" style="background-color:burlywood ;">Плотной древесины</option>
-						<option value="blanchedalmond" style="background-color:blanchedalmond ;">Миндальный</option>
-						<option value="papayawhip" style="background-color:papayawhip ;">Побега папайи</option>
-						<option value="oldlace" style="background-color: oldlace;">Старого кружева</option>
-						<option value="wheat" style="background-color:wheat ;">Пшеничный</option>
-						<option value="orange" style="background-color: orange;">Оранжевый</option>
-						<option value="floralwhite" style="background-color:floralwhite ;">Цветочно-белый</option>
-						<option value="goldenrod" style="background-color:goldenrod ;">Золотисто-красный</option>
-						<option value="darkgoldenrod" style="background-color:darkgoldenrod ;">Тёмный золотисто-красный</option>
-						<option value="cornsilk" style="background-color: cornsilk;">Молодой кукурузы</option>
-						<option value="gold" style="background-color:gold ;">Золотистый</option>
-						<option value="lemonchiffon" style="background-color:lemonchiffon ;">Лимонного шифона</option>
-						<option value="khaki" style="background-color:khaki ;">Хаки</option>
-						<option value="palegoldenrod" style="background-color:palegoldenrod ;">Бледный золотисто-красный</option>
-						<option value="darkkhaki" style="background-color:darkkhaki ;">Тёмный хаки</option>
-						<option value="beige" style="background-color:beige ;">Слоновой кости</option>
-						<option value="lightyellow" style="background-color:lightyellow ;">Светло-жёлтый</option>
-						<option value="olive" style="background-color:olive;">Оливковый</option>
-						<option value="yellow" style="background-color:yellow ;">Жёлтый</option>
-						<option value="olivedrab" style="background-color: olivedrab;">Нежно-оливковый</option>
-						<option value="yellowgreen" style="background-color:yellowgreen ;">Жёлто-зеленый</option>
-						<option value="darkolivegreen" style="background-color:darkolivegreen ;">Тёмный оливково-зеленый</option>
-						<option value="greenyellow" style="background-color:greenyellow ;">Зелёно-жёлтый</option>
-						<option value="lawngreen" style="background-color: lawngreen;">Зеленой лужайки</option>
-						<option value="chartreuseh" style="background-color:chartreuseh ;">Шартрез</option>
-						<option value="honeydew" style="background-color:honeydew ;">Медовой росы</option>
-						<option value="darkseagreen" style="background-color:darkseagreen ;">Тёмный морской волны</option>
-						<option value="lightgreen" style="background-color:lightgreen ;">Светло-зелёный</option>
-						<option value="palegreenl" style="background-color:palegreenl ;">Бледно-зелёный</option>
-						<option value="forestgreen" style="background-color:forestgreen ;">Лесной зелени</option>
-						<option value="limegreen" style="background-color:limegreen ;">Зеленого лайма</option>
-						<option value="darkgreen" style="background-color:darkgreen ;">Тёмно-зелёный</option>
-						<option value="green" style="background-color: green;">Зелёный</option>
-						<option value="lime" style="background-color: lime;">Лайма</option>
-						<option value="seagreen" style="background-color: seagreen;">Морской волны</option>
-						<option value="mediumseagreen" style="background-color:mediumseagreen ;">Умеренный морской волны</option>
-						<option value="mintcream" style="background-color:mintcream ;">Мятного крема</option>
-						<option value="springgreen" style="background-color:springgreen ;">Весенней зелени</option>
-						<option value="mediumspringgreen" style="background-color:mediumspringgreen ;">Умеренный весенней зелени</option>
-						<option value="mediumaquamarine" style="background-color: mediumaquamarine;">Умеренный аквамариновый</option>
-						<option value="aquamarine" style="background-color:aquamarine ;">Аквамариновый</option>
-						<option value="turquoise" style="background-color:turquoise ;">Бирюзовый</option>
-						<option value="lightseagreen" style="background-color:lightseagreen ;">Светлый морской волны</option>
-						<option value="mediumturquoise" style="background-color: mediumturquoise;">Умеренный бирюзовый</option>
-						<option value="azure" style="background-color:azure ;">Лазурный</option>
-						<option value="paleturquoise" style="background-color: paleturquoise;">Бледно-бирюзовый</option>
-						<option value="darkslategray" style="background-color:darkslategray ;">Тёмный аспидно-серый</option>
-						<option value="darkcyan" style="background-color:darkcyan ;">Тёмно-циановый</option>
-						<option value="aqua" style="background-color: aqua;">Морской волны</option>
-						<option value="cyan" style="background-color: cyan;">Циановый</option>
-						<option value="lightcyan" style="background-color: lightcyan;">Светло-циановый</option>
-						<option value="darkturquoise" style="background-color: darkturquoise;">Тёмно-бирюзовый</option>
-						<option value=powderblue"" style="background-color:powderblue ;">Голубой пороши</option>
-						<option value="lightblue" style="background-color:lightblue ;">Светло-голубой</option>
-						<option value="deepskyblue" style="background-color:deepskyblue ;">Насыщенный небесно-голубой</option>
-						<option value="skyblue" style="background-color:skyblue ;">небесно-голубой</option>
-						<option value="lightskyblue" style="background-color:lightskyblue ;">Светлый небесно-голубой</option>
-						<option value="steelblue" style="background-color:steelblue ;">Голубовато-стальной</option>
-						<option value="slategray" style="background-color:slategray ;">Аспидно-серый</option>
-						<option value="lightslategray" style="background-color: lightslategray;">Светлый аспидно-серый</option>
-						<option value="lightsteelblue" style="background-color:lightsteelblue ;">Светлый голубовато-стальной</option>
-						<option value="cornflowerblue" style="background-color:cornflowerblue ;">Васильковый</option>
-						<option value="royalblue" style="background-color:royalblue ;">Королевский голубой</option>
-						<option value="ghostwhite" style="background-color:ghostwhite ;">Призрачно-белый</option>
-						<option value="lavender" style="background-color: lavender;">Лавандовый</option>
-						<option value="midnightblue" style="background-color:midnightblue ;">Синей полночи</option>
-						<option value="navy" style="background-color:navy ;">Флотский</option>
-						<option value="darkblue" style="background-color:darkblue ;">Тёмно-синий</option>
-						<option value="mediumblue" style="background-color:mediumblue ;">Умеренный голубой</option>
-						<option value="blue" style="background-color:blue ;">Голубой(синий)</option>
-						<option value="darkslateblue" style="background-color:darkslateblue ;">Тёмный аспидно-синий</option>
-						<option value="slateblue" style="background-color:slateblue ;">Аспидно-синий</option>
-						<option value="mediumslateblue" style="background-color: mediumslateblue;">Умеренный аспидно-синий</option>
-						<option value="mediumpurple" style="background-color:mediumpurple ;">Умеренный пурпурный</option>
-						<option value="blueviolet" style="background-color:blueviolet ;">Сине-фиолетовый</option>
-						<option value="indigo" style="background-color:indigo ;">Индиго</option>
-						<option value="darkorchid" style="background-color:darkorchid ;">Тёмно-лиловый</option>
-						<option value="darkviolet" style="background-color:darkviolet ;">Тёмно-фиолетовый</option>
-						<option value="mediumorchid" style="background-color: mediumorchid;">Умеренный лиловый</option>
-						<option value="thistle" style="background-color: thistle;">Чертополоха</option>
-						<option value="plum" style="background-color: plum;">Сливовый</option>
-						<option value="violet" style="background-color:violet ;">Фиолетовый</option>
-						<option value="purple" style="background-color:purple ;">Пурпурный</option>
-						<option value="darkmagenta" style="background-color: darkmagenta;">Тёмный фуксин</option>
-						<option value="fuchsia" style="background-color: fuchsia;">Фуксин</option>
-						<option value="magenta" style="background-color:magenta ;">Фуксин,красная анилиновая краска</option>
-						<option value="orchid" style="background-color:orchid ;">Лиловый</option>
-						<option value="mediumvioletred" style="background-color:mediumvioletred ;">Умеренный лилово-красный</option>
-						<option value="deeppink" style="background-color:deeppink ;">Насыщенный розовый</option>
-						<option value="hotpink" style="background-color: hotpink;">Яркий розовый</option>
-						<option value="lavenderblush" style="background-color:lavenderblush ;">Лавандового румянца</option>
-						<option value="palevioletred" style="background-color: palevioletred;">Бледный лилово-красный</option>
-						<option value="crimson" style="background-color:crimson ;">Малиновый</option>
-						<option value="pink" style="background-color: pink;">Розовый</option>
-						<option value="lightpink" style="background-color:lightpink ;">Светло-розовый</option>
+						<option selected="selected" value="white">Цвет фона</option>
+						<option value="white" style="background-color:white;"></option>
+						<option value="black" style="background-color: black;"></option>
+						<option value="dimgray" style="background-color: dimgray;"></option>
+						<option value="gray" style="background-color: gray;"></option>
+						<option value="silver" style="background-color: silver;"></option>
+						<option value="lightgrey" style="background-color:lightgray;"></option>
+						<option value="gainsboro" style="background-color:gainsboro;"></option>
+						<option value="whitesmoke" style="background-color:whitesmoke;"></option>
+						<option value="snow" style="background-color:snow;"></option>
+						<option value="rosybrown" style="background-color:rosybrown;"></option>
+						<option value="lightcoral" style="background-color:lightcoral;"></option>
+						<option value="brown" style="background-color:brown;"></option>
+						<option value="firebrick" style="background-color:firebrick;"></option>
+						<option value="maroon" style="background-color:maroon;"></option>
+						<option value="darkred" style="background-color:darkred;"></option>
+						<option value="red" style="background-color: red;"></option>
+						<option value="salmon" style="background-color:salmon;"></option>
+						<option value="mistyrose" style="background-color: mistyrose;"></option>
+						<option value="tomato" style="background-color:tomato;"></option>
+						<option value="darksalmon" style="background-color:darksalmon;"></option>
+						<option value="coral" style="background-color:coral;"></option>
+						<option value="orangered" style="background-color:orangered;"></option>
+						<option value="lightsalmon" style="background-color:lightsalmon;"></option>
+						<option value="sienna" style="background-color:sienna;"></option>
+						<option value="seashell" style="background-color:seashell;"></option>
+						<option value="saddlebrown" style="background-color:saddlebrown;"></option>
+						<option value="chocolate" style="background-color:chocolate;"></option>
+						<option value="peachpuff" style="background-color:peachpuff;"></option>
+						<option value="sandybrown" style="background-color:sandybrown;"></option>
+						<option value="linen" style="background-color: linen;"></option>
+						<option value="bisque" style="background-color: bisque;"></option>
+						<option value="darkorange" style="background-color: darkorange;"></option>
+						<option value="antiquewhite" style="background-color:antiquewhite;"></option>
+						<option value="tan" style="background-color:tan;"></option>
+						<option value="burlywood" style="background-color:burlywood ;"></option>
+						<option value="blanchedalmond" style="background-color:blanchedalmond;"></option>
+						<option value="papayawhip" style="background-color:papayawhip;"></option>
+						<option value="oldlace" style="background-color: oldlace;"></option>
+						<option value="wheat" style="background-color:wheat;"></option>
+						<option value="orange" style="background-color: orange;"></option>
+						<option value="floralwhite" style="background-color:floralwhite;"></option>
+						<option value="goldenrod" style="background-color:goldenrod;"></option>
+						<option value="darkgoldenrod" style="background-color:darkgoldenrod;"></option>
+						<option value="cornsilk" style="background-color: cornsilk;"></option>
+						<option value="gold" style="background-color:gold;"></option>
+						<option value="lemonchiffon" style="background-color:lemonchiffon;"></option>
+						<option value="khaki" style="background-color:khaki;"></option>
+						<option value="palegoldenrod" style="background-color:palegoldenrod;"></option>
+						<option value="darkkhaki" style="background-color:darkkhaki;"></option>
+						<option value="beige" style="background-color:beige;"></option>
+						<option value="lightyellow" style="background-color:lightyellow;"></option>
+						<option value="olive" style="background-color:olive;"></option>
+						<option value="yellow" style="background-color:yellow;"></option>
+						<option value="olivedrab" style="background-color: olivedrab;"></option>
+						<option value="yellowgreen" style="background-color:yellowgreen;"></option>
+						<option value="darkolivegreen" style="background-color:darkolivegreen;"></option>
+						<option value="greenyellow" style="background-color:greenyellow;"></option>
+						<option value="lawngreen" style="background-color:lawngreen;"></option>
+						<option value="honeydew" style="background-color:honeydew;"></option>
+						<option value="darkseagreen" style="background-color:darkseagreen ;"></option>
+						<option value="lightgreen" style="background-color:lightgreen ;"></option>
+						<option value="forestgreen" style="background-color:forestgreen ;"></option>
+						<option value="limegreen" style="background-color:limegreen ;"></option>
+						<option value="darkgreen" style="background-color:darkgreen ;"></option>
+						<option value="green" style="background-color: green;"></option>
+						<option value="lime" style="background-color: lime;"></option>
+						<option value="seagreen" style="background-color: seagreen;"></option>
+						<option value="mediumseagreen" style="background-color:mediumseagreen;"></option>
+						<option value="mintcream" style="background-color:mintcream;"></option>
+						<option value="springgreen" style="background-color:springgreen;"></option>
+						<option value="mediumspringgreen" style="background-color:mediumspringgreen;"></option>
+						<option value="mediumaquamarine" style="background-color: mediumaquamarine;"></option>
+						<option value="aquamarine" style="background-color:aquamarine;"></option>
+						<option value="turquoise" style="background-color:turquoise;"></option>
+						<option value="lightseagreen" style="background-color:lightseagreen;"></option>
+						<option value="mediumturquoise" style="background-color: mediumturquoise;"></option>
+						<option value="azure" style="background-color:azure;"></option>
+						<option value="paleturquoise" style="background-color: paleturquoise;"></option>
+						<option value="darkslategray" style="background-color:darkslategray;"></option>
+						<option value="darkcyan" style="background-color:darkcyan;"></option>
+						<option value="aqua" style="background-color: aqua;"></option>
+						<option value="cyan" style="background-color: cyan;"></option>
+						<option value="lightcyan" style="background-color: lightcyan;"></option>
+						<option value="darkturquoise" style="background-color: darkturquoise;"></option>
+						<option value=powderblue"" style="background-color:powderblue;"></option>
+						<option value="lightblue" style="background-color:lightblue;"></option>
+						<option value="deepskyblue" style="background-color:deepskyblue;"></option>
+						<option value="skyblue" style="background-color:skyblue;"></option>
+						<option value="lightskyblue" style="background-color:lightskyblue;"></option>
+						<option value="steelblue" style="background-color:steelblue;"></option>
+						<option value="slategray" style="background-color:slategray;"></option>
+						<option value="lightslategray" style="background-color: lightslategray;"></option>
+						<option value="lightsteelblue" style="background-color:lightsteelblue;"></option>
+						<option value="cornflowerblue" style="background-color:cornflowerblue;"></option>
+						<option value="royalblue" style="background-color:royalblue;"></option>
+						<option value="ghostwhite" style="background-color:ghostwhite;"></option>
+						<option value="lavender" style="background-color: lavender;"></option>
+						<option value="midnightblue" style="background-color:midnightblue;"></option>
+						<option value="navy" style="background-color:navy;"></option>
+						<option value="darkblue" style="background-color:darkblue;"></option>
+						<option value="mediumblue" style="background-color:mediumblue;"></option>
+						<option value="blue" style="background-color:blue;"></option>
+						<option value="darkslateblue" style="background-color:darkslateblue;"></option>
+						<option value="slateblue" style="background-color:slateblue;"></option>
+						<option value="mediumslateblue" style="background-color: mediumslateblue;"></option>
+						<option value="mediumpurple" style="background-color:mediumpurple;"></option>
+						<option value="blueviolet" style="background-color:blueviolet;"></option>
+						<option value="indigo" style="background-color:indigo;"></option>
+						<option value="darkorchid" style="background-color:darkorchid;"></option>
+						<option value="darkviolet" style="background-color:darkviolet;"></option>
+						<option value="mediumorchid" style="background-color: mediumorchid;"></option>
+						<option value="thistle" style="background-color: thistle;"></option>
+						<option value="plum" style="background-color: plum;"></option>
+						<option value="violet" style="background-color:violet;"></option>
+						<option value="purple" style="background-color:purple;"></option>
+						<option value="darkmagenta" style="background-color: darkmagenta;"></option>
+						<option value="fuchsia" style="background-color: fuchsia;"></option>
+						<option value="magenta" style="background-color:magenta;"></option>
+						<option value="orchid" style="background-color:orchid;"></option>
+						<option value="mediumvioletred" style="background-color:mediumvioletred;"></option>
+						<option value="deeppink" style="background-color:deeppink;"></option>
+						<option value="hotpink" style="background-color: hotpink;"></option>
+						<option value="lavenderblush" style="background-color:lavenderblush;"></option>
+						<option value="palevioletred" style="background-color: palevioletred;"></option>
+						<option value="crimson" style="background-color:crimson;"></option>
+						<option value="pink" style="background-color: pink;"></option>
+						<option value="lightpink" style="background-color:lightpink ;"></option>
 					</select>
 				</li>
 				<li>
@@ -177,6 +181,7 @@
 				<li>
 					<p>Предварительный просмотр<input type="checkbox" onclick="Preview();" name="1" id="preview" value="2"></p>
 				</li>
+				<button onclick="RenderImage();">Сохранить картинку</button></br></br>
 				<li>
 					<button onclick="DeleteLastText();">Удалить последний блок текста</button></br></br>
 					<button onclick="DeleteLastImage();">Удалить последнее изображение</button></br></br>
@@ -185,25 +190,10 @@
 			</ul>
 		</div>
 		<div class="editor">
-			<h2 class="editor-label">Редактор</h2>
 			<div id="editorfield" class="editor-field"></div>
 			<div class="price">
 				<h3 id="price">Цена: 0р.</h3>
 			</div>
-		</div>
-		<div class="right-menu">
-			<script src="scripts/html2canvas.js"></script>
-			<h3>Настройки</h3>
-			<p>Тип рекламы</p>
-			<input type="radio" id="adv1"name="adv" onclick="CheckRadio()" value="billboard">
-			<label for="adv1">Билборд</label></br>
-			<input type="radio" id="adv2"name="adv" onclick="CheckRadio()" value="signboard">
-			<label for="adv2">Вывеска</label></br>
-			<input type="radio" id="adv3"name="adv" onclick="CheckRadio()" value="lightbox">
-			<label for="adv3">Лайтбокс</label></br>
-			<p>Сохранить картинку</p>
-			<p>Формат .png</p>
-			<button onclick="RenderImage();">Сохранить</button>
 		</div>
 	</div>
 	<div class="footer">

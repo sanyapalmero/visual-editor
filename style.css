@@ -1,5 +1,8 @@
-body{
+body, html{
 	margin: 0;/*отступы со всех сторон отключены*/
+	width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .header{
@@ -54,7 +57,7 @@ nav ul li:hover > ul {
 	
 /*стили для выпадающего списка*/
 nav ul ul li {
-	width:170px;
+	width:110px;
 	float:none;
 	display:list-item;
 	position: relative;
@@ -70,7 +73,62 @@ nav ul ul li {
 }
 
 .adv-type1{
-	padding-left: 500px;
+	margin-left: 500px;
+}
+
+/*кнопка "добавить текст"*/
+.add-button{
+	color: white;
+	background: crimson;
+	border: none;
+	margin-left: 10px;
+	font-size: 16px;
+	padding: 10px;
+}
+
+.add-button:hover{
+	background: red;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.img-button{
+	margin-top: 20px;
+}
+
+.load-button{
+	color: white;
+	background: crimson;
+	border: none;
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 16px;
+	padding: 10px;
+}
+
+.load-button:hover{
+	background: red;
+}
+
+.color-select{
+	margin-top: 20px;
+	margin-left: 10px;
+	height: 30px;
+	width: 150px;
+	color: white;
+	background: crimson;
+	font-size: 16px;
+	border: none;
+}
+
+.color-select:hover{
+	background: red;
+}
+
+.tools-label{
+	margin-left: 10px;
 }
 
 /*стили для футера*/
@@ -79,24 +137,27 @@ nav ul ul li {
 }
 
 .footer {
-	margin: 0;
-	padding: 0;
-	height: 45px;
+	
+	height: 60px;
 	background-color: crimson;
 }
 
 .main{
-	background-color: #edeef0;;/*заливка главного фона*/
+	background-color: #edeef0;/*заливка главного фона*/
+	height: 100%;
 }
 
 .left-menu{
+	display: block;
+	margin-left: 0;
 	float: left;
-	margin-left: 5px;
+	background-color: lightblue;
+	height: 100%;
 }
 
 .editor{
 	display: inline-block;
-	width: 33%;
+	height: 100%;
 }
 
 .right-menu{
@@ -110,11 +171,14 @@ nav ul ul li {
 }
 
 .editor-field{
-	margin-left: 5%;
+	margin-top: 0;
+	margin-left: 0;
 	background: white;/*#F5F5F5*/
-	border: 2px solid #000;
-	width: 900px;
-    height: 500px;
+	/*width: 1092px;
+    height: 848px;*/
+
+    width: 900px;
+    height: 100%;
     /*overflow: hidden;
     display: flex;
     justify-content: space-between;*/

@@ -26,7 +26,6 @@ function AddElememt(){
 		elem.setAttribute("class", "textblock");
 		var wrapped = doc.getElementById('editorfield');
 		elem.innerHTML = "<textarea id=\"textarea"+count+"\" \
-		onclick=\"UpdateSelectValues("+count+");\" \
 		style=\"font-family:"+ffamily+"; \
 				font-size:"+fsize+"px; \
 				border: none; \
@@ -50,11 +49,14 @@ function AddElememt(){
 		var label = doc.createElement('div');
 		label.setAttribute("id",""+count+"label");
 		label.setAttribute("style","display:inline-block;");
-		label.innerHTML = "Блок "+count+"";
+		label.innerHTML = ""+count+"";
 		$("#texttools").append(label);
 		var select1 = doc.createElement('select');
 		select1.setAttribute("id", ""+count+"fs");
-		select1.innerHTML = "<option value=\"Arial\">Arial</option>\
+		select1.setAttribute("style", "background:crimson;\
+									   color:white");
+		select1.innerHTML = "<option selected=\"selected\">Шрифт</option>\
+							<option value=\"Arial\">Arial</option>\
 							<option value=\"Verdana\">Verdana </option>\
 							<option value=\"Impact\">Impact</option>\
 							<option value=\"Comic Sans MS\">Comic Sans MS</option>";
@@ -62,14 +64,20 @@ function AddElememt(){
 		wrapped.appendChild(select1);
 		var select2 = doc.createElement('select');
 		select2.setAttribute("id", ""+count+"size");
-		select2.innerHTML = "<option value=\"7px\">7px</option>\
+		select2.setAttribute("style", "background:crimson;\
+									   color:white");
+		select2.innerHTML = "<option selected=\"selected\">Размер</option>\
+							<option value=\"7px\">7px</option>\
 							<option value=\"10px\">10px</option>\
 							<option value=\"20px\">20px</option>\
 							<option value=\"30px\">30px</option>";
 		wrapped.appendChild(select2);
 		var select3 = doc.createElement('select');
 		select3.setAttribute("id", ""+count+"col");
-		select3.innerHTML = "<option value=\"black\" style=\"background-color: black;\"></option>\
+		select3.setAttribute("style", "background:crimson;\
+									   color:white");
+		select3.innerHTML = "<option selected=\"selected\">Цвет</option>\
+							<option value=\"black\" style=\"background-color: black;\"></option>\
 							<option value=\"red\" style=\"background-color: red;\"></option>\
 							<option value=\"white\" style=\"background-color: white;\"></option>\
 							<option value=\"orange\" style=\"background-color: orange;\"></option>\
@@ -80,7 +88,7 @@ function AddElememt(){
 							<option value=\"magenta\" style=\"background-color: magenta;\"></option>\
 							<option value=\"crimson\" style=\"background-color: crimson;\"></option>";
 		wrapped.appendChild(select3);
-		var br = "</br>";
+		var br = "</br></br>";
 		$("#texttools").append(br);
 	}
 	else
@@ -161,17 +169,6 @@ function Preview(){
 	}
 }
 
-//this function update select tags if values are different
-function UpdateSelectValues(i){
-	var doc = document;
-	//get values from textarea
-	var fontsize1 = doc.getElementById("textarea"+i+"").style.fontFamily;
-	var size1 = doc.getElementById("textarea"+i+"").style.fontSize;
-	//change values in select
-	$("#"+i+"fs :contains('"+fontsize1+"')").attr("selected", "selected");
-	$("#"+i+"size :contains('"+size1+"')").attr("selected", "selected");
-}
-
 var flag2 = 0;
 var flag3 = 0;
 var flag4 = 0;
@@ -188,6 +185,7 @@ function GetSelectId(){
 				UpdPrice();
 				flag2 = 1;
 			}
+			//$("#"+id2+"fs").get(0).selectedIndex = 0;
 		});
 		$("#"+id2+"size").change(function() {
 			$("#textarea"+id2+"").css("font-size", $(this).val());//update font-size
@@ -196,6 +194,7 @@ function GetSelectId(){
 				UpdPrice();
 				flag3 = 1;
 			}
+			//$("#"+id2+"size").get(0).selectedIndex = 0;
 		});
 		$("#"+id2+"col").change(function() {
 			$("#textarea"+id2+"").css("color", $(this).val());//update text color
@@ -204,6 +203,8 @@ function GetSelectId(){
 				UpdPrice();
 				flag4 = 1;
 			}
+			$("#"+id2+"col").css("background", $(this).val());
+			//$("#"+id2+"col").get(0).selectedIndex = 0;
 		});
 	});
 }

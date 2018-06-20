@@ -78,13 +78,15 @@ nav ul ul li {
 
 /*кнопка "добавить текст"*/
 .add-button{
+	margin-top: 10px;
 	color: white;
 	background: crimson;
 	border: none;
 	margin-left: 10px;
 	font-size: 16px;
 	padding: 10px;
-	width: 195px;
+	width: 260px;
+	/*width: 195px;*/
 }
 
 .add-button:hover{
@@ -107,6 +109,10 @@ input[type="file"] {
 	margin-top: 10px;
 	font-size: 16px;
 	padding: 10px;
+	width: 260px;
+	padding-left: 45px;
+	padding-right: 39.5px;
+	/*width: 195px;*/
 }
 
 .load-button:hover{
@@ -117,7 +123,8 @@ input[type="file"] {
 	margin-top: 20px;
 	margin-left: 10px;
 	height: 30px;
-	width: 196px;
+	width: 260px;
+	/*width: 195px;*/
 	color: white;
 	background: crimson;
 	font-size: 16px;
@@ -138,8 +145,10 @@ input[type="file"] {
 	background: crimson;
 	border: none;
 	height: 30px;
-	width: 195px;
+	width: 260px;
+	/*width: 195px;*/
 	font-size: 16px;
+	margin-top: 20px;
 }
 
 .save-image:hover{
@@ -153,6 +162,8 @@ input[type="file"] {
 	border: none;
 	font-size: 16px;
 	height: 30px;
+	width: 260px;
+	/*width: 195px;*/
 }
 
 .del-text:hover{
@@ -179,6 +190,8 @@ input[type="file"] {
 	border: none;
 	font-size: 16px;
 	height: 30px;
+	width: 260px;
+	/*width: 195px;*/
 }
 
 .del-all:hover{
@@ -263,6 +276,27 @@ input[type="file"] {
 
 .image {
 	margin: 10px;
+}
+
+.texttools{
+	margin-left: 10px;
+}
+
+.preview{
+	margin-bottom: 10px;
+	margin-left: 10px;
+	color: white;
+	background: crimson;
+	padding: 9px;
+	padding-left: 20px;
+}
+
+.preview:hover{
+	background: red;
+}
+
+.preview input{
+	opacity: 0;
 }
 
 .price {

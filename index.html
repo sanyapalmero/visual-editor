@@ -181,11 +181,11 @@
 				<li>
 					<p>Предварительный просмотр<input type="checkbox" onclick="Preview();" name="1" id="preview" value="2"></p>
 				</li>
-				<button onclick="RenderImage();">Сохранить картинку</button></br></br>
+				<li><button class="save-image" onclick="RenderImage();">Сохранить картинку</button></br></br></li>
 				<li>
-					<button onclick="DeleteLastText();">Удалить последний блок текста</button></br></br>
-					<button onclick="DeleteLastImage();">Удалить последнее изображение</button></br></br>
-					<button onclick="DeleteAll();">Удалить все элементы</button>
+					<button class="del-text" onclick="DeleteLastText();">Удалить последний блок текста</button></br></br>
+					<button class="del-img" onclick="DeleteLastImage();">Удалить последнее изображение</button></br></br>
+					<button class="del-all" onclick="DeleteAll();">Очистить поле редактора</button>
 				</li>
 			</ul>
 		</div>

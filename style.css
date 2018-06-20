@@ -84,6 +84,7 @@ nav ul ul li {
 	margin-left: 10px;
 	font-size: 16px;
 	padding: 10px;
+	width: 195px;
 }
 
 .add-button:hover{
@@ -116,7 +117,7 @@ input[type="file"] {
 	margin-top: 20px;
 	margin-left: 10px;
 	height: 30px;
-	width: 150px;
+	width: 196px;
 	color: white;
 	background: crimson;
 	font-size: 16px;
@@ -131,13 +132,65 @@ input[type="file"] {
 	margin-left: 10px;
 }
 
+.save-image{
+	margin-left: 10px;
+	color: white;
+	background: crimson;
+	border: none;
+	height: 30px;
+	width: 195px;
+	font-size: 16px;
+}
+
+.save-image:hover{
+	background: red;
+}
+
+.del-text{
+	margin-left: 10px;
+	color: white;
+	background: crimson;
+	border: none;
+	font-size: 16px;
+	height: 30px;
+}
+
+.del-text:hover{
+	background: red;
+}
+
+.del-img{
+	margin-left: 10px;
+	color: white;
+	background: crimson;
+	border: none;
+	font-size: 16px;
+	height: 30px;
+}
+
+.del-img:hover{
+	background: red;
+}
+
+.del-all{
+	margin-left: 10px;
+	color: white;
+	background: crimson;
+	border: none;
+	font-size: 16px;
+	height: 30px;
+}
+
+.del-all:hover{
+	background: red;
+}
+
 /*стили для футера*/
 .footer ul{
 	margin: 0; 
 }
 
 .footer {
-	
 	height: 60px;
 	background-color: crimson;
 }
@@ -153,6 +206,7 @@ input[type="file"] {
 	float: left;
 	background-color: lightblue;
 	height: 100%;
+	width: 290px;
 }
 
 .editor{
@@ -176,7 +230,6 @@ input[type="file"] {
 	background: white;/*#F5F5F5*/
 	/*width: 1092px;
     height: 848px;*/
-
     width: 900px;
     height: 100%;
     /*overflow: hidden;

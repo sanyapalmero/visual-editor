@@ -9,6 +9,17 @@ body, html{
 	margin: 0;
 }
 
+.logo{
+	width: 60px;
+}
+
+.logo img{
+	height: 40px;
+	position:absolute;
+	top: 10px; 
+	left: 10px;
+}
+
 nav {
 	background-color: crimson;/*заливка nav'а*/
 }
@@ -25,7 +36,7 @@ nav ul {
 nav ul li {
 	display:inline-block;
 	background-color: crimson;
-	}
+}
 
 /*стили ссылок в шапке*/
 nav a {
@@ -54,10 +65,16 @@ nav ul ul {
 nav ul li:hover > ul {
 	display:inherit;
 }
+
+nav ul ul ul li {
+	position: relative;
+	top:-60px; 
+	left:200px;
+}
 	
 /*стили для выпадающего списка*/
 nav ul ul li {
-	width:110px;
+	width:200px;
 	float:none;
 	display:list-item;
 	position: relative;
@@ -236,7 +253,7 @@ input[type="file"] {
 }
 
 .main{
-	background-color: #58C9A0;;/*заливка главного фона*/
+	background-color: #58C9A0;/*заливка главного фона*/
 	height: 100%;
 }
 

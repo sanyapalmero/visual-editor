@@ -93,6 +93,10 @@ nav ul ul li {
 	background: red;
 }
 
+.add-button:active{
+	background: #2F4F4F;
+}
+
 input[type="file"] {
     display: none;
 }
@@ -117,6 +121,10 @@ input[type="file"] {
 
 .load-button:hover{
 	background: red;
+}
+
+.load-button:active{
+	background: #2F4F4F;
 }
 
 .color-select{
@@ -155,8 +163,13 @@ input[type="file"] {
 	background: red;
 }
 
+.save-image:active{
+	background: #2F4F4F;
+}
+
 .del-text{
 	margin-left: 10px;
+	margin-top: -10px;
 	color: white;
 	background: crimson;
 	border: none;
@@ -170,8 +183,13 @@ input[type="file"] {
 	background: red;
 }
 
+.del-text:active{
+	background: #2F4F4F;
+}
+
 .del-img{
 	margin-left: 10px;
+	margin-top: -10px;
 	color: white;
 	background: crimson;
 	border: none;
@@ -183,8 +201,13 @@ input[type="file"] {
 	background: red;
 }
 
+.del-img:active{
+	background: #2F4F4F;
+}
+
 .del-all{
 	margin-left: 10px;
+	margin-top: -10px;
 	color: white;
 	background: crimson;
 	border: none;
@@ -198,6 +221,10 @@ input[type="file"] {
 	background: red;
 }
 
+.del-all:active{
+	background: #2F4F4F;
+}
+
 /*стили для футера*/
 .footer ul{
 	margin: 0; 
@@ -209,7 +236,7 @@ input[type="file"] {
 }
 
 .main{
-	background-color: #edeef0;/*заливка главного фона*/
+	background-color: #58C9A0;;/*заливка главного фона*/
 	height: 100%;
 }
 
@@ -217,7 +244,7 @@ input[type="file"] {
 	display: block;
 	margin-left: 0;
 	float: left;
-	background-color: lightblue;
+	background-color: #58C9A0;;
 	height: 100%;
 	width: 290px;
 }
@@ -293,6 +320,10 @@ input[type="file"] {
 
 .preview:hover{
 	background: red;
+}
+
+.preview:active{
+	background: #2F4F4F;
 }
 
 .preview input{

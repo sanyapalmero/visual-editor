@@ -29,7 +29,7 @@ function AddElememt(){
 		style=\"font-family:"+ffamily+"; \
 				font-size:"+fsize+"px; \
 				border: none; \
-				background-color:"+color+"\" \
+				background: transparent;\" \
 				class=\"ui-widget\">Редактируемый текст</textarea>";
 	    wrapped.appendChild(elem);
 	    for(i=0;i<=maxtextelems;i++)
@@ -118,9 +118,6 @@ function СhangeBackground(id,color){
 		flag = 1;
 	}
 	id.style.backgroundColor=color;
-	for(i=0;i<=maxtextelems;i++){
-    	$("#textarea"+i+"").css('backgroundColor', color);
-	}
 	$('#colorselection').get(0).selectedIndex = 0;//set first select
 }
 

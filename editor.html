@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Редактор</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="scripts/jquery-ui.css">
+	<link rel="icon" type="image/png" href="img/icon.ico" />
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery-ui.min.js"></script>
+	<script src="scripts/script.js"></script>
+	<script src="scripts/html2canvas.js"></script>
+	<script src="scripts/jquery.ui.rotatable.js"></script>
+</head>
+<body>
+	<div class="header">
+		<nav>
+			<ul class="header-links">
+				<li class="logo"><a href="index.html"><img src="img/logo.png"></a></li>
+				<li class="main-button"><a href="index.html">Главная</a></li>
+				<li class="adv-type1">
+					<a href="#">Тип рекламы</a>
+					<ul>
+						<li>
+							<a href="#">Билборд</a>
+							<ul>
+								<li><a href="#">Размер1</a></li>
+								<li><a href="#">Размер2</a></li>
+								<li><a href="#">Размер3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Лайтбокс</a>
+							<ul>
+								<li><a href="#">Размер1</a></li>
+								<li><a href="#">Размер2</a></li>
+								<li><a href="#">Размер3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Вывеска</a>
+							<ul>
+								<li><a href="#">Размер1</a></li>
+								<li><a href="#">Размер2</a></li>
+								<li><a href="#">Размер3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Сити-формат</a>
+							<ul>
+								<li><a href="#">Размер1</a></li>
+								<li><a href="#">Размер2</a></li>
+								<li><a href="#">Размер3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Дорожный указатель</a>
+							<ul>
+								<li><a href="#">Размер1</a></li>
+								<li><a href="#">Размер2</a></li>
+								<li><a href="#">Размер3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Стелла</a>
+							<ul>
+								<li><a href="#">Размер1</a></li>
+								<li><a href="#">Размер2</a></li>
+								<li><a href="#">Размер3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Арка</a>
+							<ul>
+								<li><a href="#">Размер1</a></li>
+								<li><a href="#">Размер2</a></li>
+								<li><a href="#">Размер3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Перетяжка</a>
+							<ul>
+								<li><a href="#">Размер1</a></li>
+								<li><a href="#">Размер2</a></li>
+								<li><a href="#">Размер3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Призматрон</a>
+							<ul>
+								<li><a href="#">Размер1</a></li>
+								<li><a href="#">Размер2</a></li>
+								<li><a href="#">Размер3</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="auth-button"><a href="#">Вход</a></li>
+				<li class="reg-button"><a href="#">Регистрация</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="main">
+		<div class="left-menu">
+			<ul class="tools">
+				<li><input class="add-button" type="button" value="Добавить текст" onclick="AddElememt();"></li>
+				<li class="img-button">
+					<label for="img-load" class="load-button">
+						Загрузить изображение
+					</label>
+					<input id="img-load" type="file" onchange="LoadImage(this);">
+				</li>
+				<li>
+					<select class="color-select" id="colorselection" onchange="СhangeBackground(editorfield,value);">
+						<!--<option value="#F5F5F5" style="background-color: #F5F5F5;">Default</option>-->
+						<option selected="selected" value="white">Цвет фона</option>
+						<option value="white" style="background-color:white;"></option>
+						<option value="black" style="background-color: black;"></option>
+						<option value="dimgray" style="background-color: dimgray;"></option>
+						<option value="gray" style="background-color: gray;"></option>
+						<option value="silver" style="background-color: silver;"></option>
+						<option value="lightgrey" style="background-color:lightgray;"></option>
+						<option value="gainsboro" style="background-color:gainsboro;"></option>
+						<option value="whitesmoke" style="background-color:whitesmoke;"></option>
+						<option value="snow" style="background-color:snow;"></option>
+						<option value="rosybrown" style="background-color:rosybrown;"></option>
+						<option value="lightcoral" style="background-color:lightcoral;"></option>
+						<option value="brown" style="background-color:brown;"></option>
+						<option value="firebrick" style="background-color:firebrick;"></option>
+						<option value="maroon" style="background-color:maroon;"></option>
+						<option value="darkred" style="background-color:darkred;"></option>
+						<option value="red" style="background-color: red;"></option>
+						<option value="salmon" style="background-color:salmon;"></option>
+						<option value="mistyrose" style="background-color: mistyrose;"></option>
+						<option value="tomato" style="background-color:tomato;"></option>
+						<option value="darksalmon" style="background-color:darksalmon;"></option>
+						<option value="coral" style="background-color:coral;"></option>
+						<option value="orangered" style="background-color:orangered;"></option>
+						<option value="lightsalmon" style="background-color:lightsalmon;"></option>
+						<option value="sienna" style="background-color:sienna;"></option>
+						<option value="seashell" style="background-color:seashell;"></option>
+						<option value="saddlebrown" style="background-color:saddlebrown;"></option>
+						<option value="chocolate" style="background-color:chocolate;"></option>
+						<option value="peachpuff" style="background-color:peachpuff;"></option>
+						<option value="sandybrown" style="background-color:sandybrown;"></option>
+						<option value="linen" style="background-color: linen;"></option>
+						<option value="bisque" style="background-color: bisque;"></option>
+						<option value="darkorange" style="background-color: darkorange;"></option>
+						<option value="antiquewhite" style="background-color:antiquewhite;"></option>
+						<option value="tan" style="background-color:tan;"></option>
+						<option value="burlywood" style="background-color:burlywood ;"></option>
+						<option value="blanchedalmond" style="background-color:blanchedalmond;"></option>
+						<option value="papayawhip" style="background-color:papayawhip;"></option>
+						<option value="oldlace" style="background-color: oldlace;"></option>
+						<option value="wheat" style="background-color:wheat;"></option>
+						<option value="orange" style="background-color: orange;"></option>
+						<option value="floralwhite" style="background-color:floralwhite;"></option>
+						<option value="goldenrod" style="background-color:goldenrod;"></option>
+						<option value="darkgoldenrod" style="background-color:darkgoldenrod;"></option>
+						<option value="cornsilk" style="background-color: cornsilk;"></option>
+						<option value="gold" style="background-color:gold;"></option>
+						<option value="lemonchiffon" style="background-color:lemonchiffon;"></option>
+						<option value="khaki" style="background-color:khaki;"></option>
+						<option value="palegoldenrod" style="background-color:palegoldenrod;"></option>
+						<option value="darkkhaki" style="background-color:darkkhaki;"></option>
+						<option value="beige" style="background-color:beige;"></option>
+						<option value="lightyellow" style="background-color:lightyellow;"></option>
+						<option value="olive" style="background-color:olive;"></option>
+						<option value="yellow" style="background-color:yellow;"></option>
+						<option value="olivedrab" style="background-color: olivedrab;"></option>
+						<option value="yellowgreen" style="background-color:yellowgreen;"></option>
+						<option value="darkolivegreen" style="background-color:darkolivegreen;"></option>
+						<option value="greenyellow" style="background-color:greenyellow;"></option>
+						<option value="lawngreen" style="background-color:lawngreen;"></option>
+						<option value="honeydew" style="background-color:honeydew;"></option>
+						<option value="darkseagreen" style="background-color:darkseagreen ;"></option>
+						<option value="lightgreen" style="background-color:lightgreen ;"></option>
+						<option value="forestgreen" style="background-color:forestgreen ;"></option>
+						<option value="limegreen" style="background-color:limegreen ;"></option>
+						<option value="darkgreen" style="background-color:darkgreen ;"></option>
+						<option value="green" style="background-color: green;"></option>
+						<option value="lime" style="background-color: lime;"></option>
+						<option value="seagreen" style="background-color: seagreen;"></option>
+						<option value="mediumseagreen" style="background-color:mediumseagreen;"></option>
+						<option value="mintcream" style="background-color:mintcream;"></option>
+						<option value="springgreen" style="background-color:springgreen;"></option>
+						<option value="mediumspringgreen" style="background-color:mediumspringgreen;"></option>
+						<option value="mediumaquamarine" style="background-color: mediumaquamarine;"></option>
+						<option value="aquamarine" style="background-color:aquamarine;"></option>
+						<option value="turquoise" style="background-color:turquoise;"></option>
+						<option value="lightseagreen" style="background-color:lightseagreen;"></option>
+						<option value="mediumturquoise" style="background-color: mediumturquoise;"></option>
+						<option value="azure" style="background-color:azure;"></option>
+						<option value="paleturquoise" style="background-color: paleturquoise;"></option>
+						<option value="darkslategray" style="background-color:darkslategray;"></option>
+						<option value="darkcyan" style="background-color:darkcyan;"></option>
+						<option value="aqua" style="background-color: aqua;"></option>
+						<option value="cyan" style="background-color: cyan;"></option>
+						<option value="lightcyan" style="background-color: lightcyan;"></option>
+						<option value="darkturquoise" style="background-color: darkturquoise;"></option>
+						<option value=powderblue"" style="background-color:powderblue;"></option>
+						<option value="lightblue" style="background-color:lightblue;"></option>
+						<option value="deepskyblue" style="background-color:deepskyblue;"></option>
+						<option value="skyblue" style="background-color:skyblue;"></option>
+						<option value="lightskyblue" style="background-color:lightskyblue;"></option>
+						<option value="steelblue" style="background-color:steelblue;"></option>
+						<option value="slategray" style="background-color:slategray;"></option>
+						<option value="lightslategray" style="background-color: lightslategray;"></option>
+						<option value="lightsteelblue" style="background-color:lightsteelblue;"></option>
+						<option value="cornflowerblue" style="background-color:cornflowerblue;"></option>
+						<option value="royalblue" style="background-color:royalblue;"></option>
+						<option value="ghostwhite" style="background-color:ghostwhite;"></option>
+						<option value="lavender" style="background-color: lavender;"></option>
+						<option value="midnightblue" style="background-color:midnightblue;"></option>
+						<option value="navy" style="background-color:navy;"></option>
+						<option value="darkblue" style="background-color:darkblue;"></option>
+						<option value="mediumblue" style="background-color:mediumblue;"></option>
+						<option value="blue" style="background-color:blue;"></option>
+						<option value="darkslateblue" style="background-color:darkslateblue;"></option>
+						<option value="slateblue" style="background-color:slateblue;"></option>
+						<option value="mediumslateblue" style="background-color: mediumslateblue;"></option>
+						<option value="mediumpurple" style="background-color:mediumpurple;"></option>
+						<option value="blueviolet" style="background-color:blueviolet;"></option>
+						<option value="indigo" style="background-color:indigo;"></option>
+						<option value="darkorchid" style="background-color:darkorchid;"></option>
+						<option value="darkviolet" style="background-color:darkviolet;"></option>
+						<option value="mediumorchid" style="background-color: mediumorchid;"></option>
+						<option value="thistle" style="background-color: thistle;"></option>
+						<option value="plum" style="background-color: plum;"></option>
+						<option value="violet" style="background-color:violet;"></option>
+						<option value="purple" style="background-color:purple;"></option>
+						<option value="darkmagenta" style="background-color: darkmagenta;"></option>
+						<option value="fuchsia" style="background-color: fuchsia;"></option>
+						<option value="magenta" style="background-color:magenta;"></option>
+						<option value="orchid" style="background-color:orchid;"></option>
+						<option value="mediumvioletred" style="background-color:mediumvioletred;"></option>
+						<option value="deeppink" style="background-color:deeppink;"></option>
+						<option value="hotpink" style="background-color: hotpink;"></option>
+						<option value="lavenderblush" style="background-color:lavenderblush;"></option>
+						<option value="palevioletred" style="background-color: palevioletred;"></option>
+						<option value="crimson" style="background-color:crimson;"></option>
+						<option value="pink" style="background-color: pink;"></option>
+						<option value="lightpink" style="background-color:lightpink ;"></option>
+					</select>
+				</li>
+				<li>
+					</br>
+					<div class="texttools" id="texttools" onclick="GetSelectId();"></div>
+				</li>
+				<li>
+					<label class="preview">Предварительный просмотр<input type="checkbox" onclick="Preview();" name="1" id="preview" value="2"></label>
+				</li>
+				<li><button class="save-image" onclick="RenderImage();">Сохранить картинку</button></br></br></li>
+				<li>
+					<button class="del-text" onclick="DeleteLastText();">Удалить последний блок текста</button></br></br>
+					<button class="del-img" onclick="DeleteLastImage();">Удалить последнее изображение</button></br></br>
+					<button class="del-all" onclick="DeleteAll();">Очистить поле редактора</button>
+				</li>
+			</ul>
+		</div>
+		<div class="editor">
+			<div id="editorfield" class="editor-field"></div>
+			<div class="price">
+				<h3 id="price">Цена: 0р.</h3>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<!--coming soon-->
+	</div>
+</body>
+</html>

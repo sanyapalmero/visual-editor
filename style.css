@@ -303,3 +303,22 @@ input[type="file"] {
 	text-align: center;
 	clear: both;
 }
+
+.ui-rotatable-handle {
+background:    red;
+border:        1px solid #FFF;
+border-radius: 5px;
+-moz-border-radius:    5px;
+-o-border-radius:      5px;
+-webkit-border-radius: 5px;
+cursor:        pointer;
+height:        10px;
+left:          50%;
+margin:        0 0 0 -5px;
+position:      absolute;
+top:           -5px;
+width:         10px;
+}
+.ui-rotatable-handle.clone {
+visibility:  hidden;
+}

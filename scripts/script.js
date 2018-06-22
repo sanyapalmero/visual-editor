@@ -25,7 +25,7 @@ function AddElememt(){
 		elem.setAttribute("id", "draggable"+count+"");
 		elem.setAttribute("class", "textblock");
 		var wrapped = doc.getElementById('editorfield');
-		elem.innerHTML = "<textarea id=\"textarea"+count+"\" \
+		elem.innerHTML = "<textarea onclick=RotateText("+count+"); id=\"textarea"+count+"\" \
 		style=\"font-family:"+ffamily+"; \
 				font-size:"+fsize+"px; \
 				border: none; \
@@ -43,7 +43,7 @@ function AddElememt(){
 				maxWidth: 850,
 		        maxHeight: 450,
 		        handles: "all"
-		    });
+		    })
 		}
 		//create tools for change font-family, font-size, color
 		var label = doc.createElement('div');
@@ -97,6 +97,18 @@ function AddElememt(){
 	}
 }
 
+//text rotation
+function RotateText(i){
+	elem = $("#draggable"+i+"");
+	elem.rotatable();
+}
+
+//image rotation
+function RotateImage(i){
+	elem = $("#image"+i+"");
+	elem.rotatable();
+}
+
 var flag = 0;
 //change background color in field and textarea
 function СhangeBackground(id,color){
@@ -129,7 +141,7 @@ function LoadImage(f) {
 	    fr.onload = function() {
 	        var im = new Image();
 	        im.src = this.result;
-	        elem.innerHTML = "<img id=\"dragimage"+imagecount+"\" class=\"image\" style=\"text-align: center; border:none; width: 200px; height: 200px; position: relative;\" src="+im.src+">";
+	        elem.innerHTML = "<img id=\"dragimage"+imagecount+"\" onclick=\"RotateImage("+imagecount+");\" class=\"image\" style=\"text-align: center; border:none; width: 200px; height: 200px; position: relative;\" src="+im.src+">";
 	        var wrapped = doc.getElementById('editorfield');
 	        wrapped.appendChild(elem);
 	        for(i=0;i<=maximageelems;i++){
@@ -142,7 +154,7 @@ function LoadImage(f) {
 					maxWidth: 850,
 			        maxHeight: 450,
 			        handles: "all"
-			    });
+			    })
 		    }
 	    };
 	    fr.readAsDataURL(fls[0]);
@@ -159,12 +171,14 @@ function Preview(){
 			$("#draggable"+i+"").css('border','none');
 			$("#image"+i+"").css('border','none');
 			$("#textarea"+i+"").css('resize','none');
+			$(".ui-rotatable-handle").css('opacity','0');
 		}
 	}else{
 		for(i=0;i<=maxtextelems;i++){
 			$("#draggable"+i+"").css('border','');
 			$("#image"+i+"").css('border','2px solid #000');
 			$("#textarea"+i+"").css('resize','');
+			$(".ui-rotatable-handle").css('opacity','100');
 		}
 	}
 }

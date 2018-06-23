@@ -25,7 +25,7 @@ function AddElememt(){
 		elem.setAttribute("id", "draggable"+count+"");
 		elem.setAttribute("class", "textblock");
 		var wrapped = doc.getElementById('editorfield');
-		elem.innerHTML = "<textarea onclick=RotateText("+count+"); id=\"textarea"+count+"\" \
+		elem.innerHTML = "<textarea spellcheck=\"false\" onclick=RotateText("+count+"); id=\"textarea"+count+"\" \
 		style=\"font-family:"+ffamily+"; \
 				font-size:"+fsize+"px; \
 				border: none; \
@@ -57,7 +57,14 @@ function AddElememt(){
 									   color:white");
 		select1.innerHTML = "<option selected=\"selected\">Шрифт</option>\
 							<option value=\"Arial\">Arial</option>\
-							<option value=\"Verdana\">Verdana </option>\
+							<option value=\"Arial Black\">Arial Black</option>\
+							<option value=\"Tahoma\">Tahoma</option>\
+							<option value=\"Lucida Sans Unicode\">Lucida Sans</option>\
+							<option value=\"Trebuchet MS\">Trebuchet MS</option>\
+							<option value=\"Mistral\">Mistral</option>\
+							<option value=\"Monotype Corsiva\">Monotype Corsiva</option>\
+							<option value=\"Lucida Console\">Lucida Console</option>\
+							<option value=\"Verdana\">Verdana</option>\
 							<option value=\"Impact\">Impact</option>\
 							<option value=\"Comic Sans MS\">Comic Sans MS</option>";
 		var wrapped = doc.getElementById('texttools');
@@ -68,9 +75,25 @@ function AddElememt(){
 									   color:white");
 		select2.innerHTML = "<option selected=\"selected\">Размер</option>\
 							<option value=\"7px\">7px</option>\
+							<option value=\"8px\">8px</option>\
+							<option value=\"9px\">9px</option>\
 							<option value=\"10px\">10px</option>\
+							<option value=\"12px\">12px</option>\
+							<option value=\"14px\">14px</option>\
+							<option value=\"16px\">16px</option>\
+							<option value=\"18px\">18px</option>\
 							<option value=\"20px\">20px</option>\
-							<option value=\"30px\">30px</option>";
+							<option value=\"22px\">22px</option>\
+							<option value=\"24px\">24px</option>\
+							<option value=\"26px\">26px</option>\
+							<option value=\"28px\">28px</option>\
+							<option value=\"30px\">30px</option>\
+							<option value=\"35px\">35px</option>\
+							<option value=\"40px\">40px</option>\
+							<option value=\"45px\">45px</option>\
+							<option value=\"50px\">50px</option>\
+							<option value=\"55px\">55px</option>\
+							<option value=\"60px\">60px</option>";
 		wrapped.appendChild(select2);
 		var select3 = doc.createElement('select');
 		select3.setAttribute("id", ""+count+"col");
@@ -280,25 +303,6 @@ function DeleteAll(){
 	$("#editorfield").empty();
 	$(".texttools").empty();
 	count=0;
-}
-
-//get value from radio
-function CheckRadio(){
-	var adv1 = $('#adv1').attr('checked');
-	var adv2 = $('#adv2').attr('checked');
-	var adv3 = $('#adv3').attr('checked');
-	if(adv1 == true){
-		price += 1000;
-		UpdPrice();
-	}
-	else if(adv2 == true){
-		price += 2000;
-		UpdPrice();
-	}
-	else if(adv3 == true){
-		price += 3000;
-		UpdPrice();
-	}
 }
 
 //script for updating price

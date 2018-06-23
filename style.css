@@ -5,10 +5,12 @@ body, html{
     font-family: 'Open Sans', sans-serif;
 }
 
+/*отступы у шапки*/
 .header{
 	margin: 0;
 }
 
+/*стили для логотипа*/
 .logo{
 	width: 60px;
 }
@@ -93,6 +95,10 @@ nav ul ul li {
 	margin-left: 500px;
 }
 
+.editor-page{
+	margin-left: 500px;
+}
+
 /*кнопка "добавить текст"*/
 .add-button{
 	margin-top: 10px;
@@ -114,14 +120,17 @@ nav ul ul li {
 	background: #2F4F4F;
 }
 
+/*отключение отображения кнопки "Загрузить файл"*/
 input[type="file"] {
     display: none;
 }
 
+/*li класс - "загрузить изображение"*/
 .img-button{
 	margin-top: 20px;
 }
 
+/*кнопка загрузить изображение*/
 .load-button{
 	color: white;
 	background: crimson;
@@ -144,6 +153,7 @@ input[type="file"] {
 	background: #2F4F4F;
 }
 
+/*селект с цветами для фона*/
 .color-select{
 	margin-top: 20px;
 	margin-left: 10px;
@@ -164,6 +174,7 @@ input[type="file"] {
 	margin-left: 10px;
 }
 
+/*стили для кнопки "скачать картинку"*/
 .save-image{
 	margin-left: 10px;
 	color: white;
@@ -184,6 +195,7 @@ input[type="file"] {
 	background: #2F4F4F;
 }
 
+/*стили для кнопок удаления элементов*/
 .del-text{
 	margin-left: 10px;
 	margin-top: -10px;
@@ -243,20 +255,33 @@ input[type="file"] {
 }
 
 /*стили для футера*/
-.footer ul{
-	margin: 0; 
+.footer p{
+	margin-top: 0;
+	padding-top: 20px;
+	color: white;
+	text-align: center;
 }
 
 .footer {
 	height: 60px;
 	background-color: crimson;
+	padding-bottom: 10px;
 }
 
+.icons{
+	display: inline-block;
+	margin-left: 50%;
+	margin-top: 20px;
+	width: 70px;
+}
+
+/*класс в редакторе*/
 .main{
 	background-color: #58C9A0;/*заливка главного фона*/
 	height: 100%;
 }
 
+/*левое меню*/
 .left-menu{
 	display: block;
 	margin-left: 0;
@@ -266,21 +291,20 @@ input[type="file"] {
 	width: 290px;
 }
 
+/*редактор*/
 .editor{
 	display: inline-block;
 	height: 100%;
 }
 
-.right-menu{
-	float: right;
-}
-
+/*класс тега ul где хранятся кнопки в левом меню*/
 .tools{
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
 
+/*стили для поля редактора*/
 .editor-field{
 	margin-top: 0;
 	margin-left: 0;
@@ -294,10 +318,7 @@ input[type="file"] {
     justify-content: space-between;*/
 }
 
-.editor-label{
-	margin-left: 5%;/*400px*/
-}
-
+/*стили для добавляемых блоков текста*/
 .textblock {
 	font-size: x-large;
 	border: thin solid black;
@@ -308,6 +329,7 @@ input[type="file"] {
 	overflow:hidden;
 }
 
+/*стили для добавляемой картинки*/
 .imageblock {
 	text-align: center;
 	border:2px solid #000;
@@ -318,14 +340,12 @@ input[type="file"] {
 	display: inline-block;
 }
 
-.image {
-	margin: 10px;
-}
-
+/*стили для инструментов добавляемых блоков текста (шрифт, размер, цвет)*/
 .texttools{
 	margin-left: 10px;
 }
 
+/*кнопка "предварительный просмотр"*/
 .preview{
 	margin-bottom: 10px;
 	margin-left: 10px;
@@ -347,26 +367,96 @@ input[type="file"] {
 	opacity: 0;
 }
 
+/*цена*/
 .price {
 	text-align: center;
 	clear: both;
 }
 
+/*стили для указателя вращения элементов*/
 .ui-rotatable-handle {
-background:    red;
-border:        1px solid #FFF;
-border-radius: 5px;
--moz-border-radius:    5px;
--o-border-radius:      5px;
--webkit-border-radius: 5px;
-cursor:        pointer;
-height:        10px;
-left:          50%;
-margin:        0 0 0 -5px;
-position:      absolute;
-top:           -5px;
-width:         10px;
+	background: red;
+	border: 1px solid #FFF;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	cursor: pointer;
+	height: 10px;
+	left: 50%;
+	margin: 0 0 0 -5px;
+	position: absolute;
+	top: -5px;
+	width: 10px;
 }
 .ui-rotatable-handle.clone {
-visibility:  hidden;
+	visibility:  hidden;
+}
+
+/*---------------------------------------index.html------------------------------*/
+.block1 h1{
+	text-align: center;
+	color: white;
+	margin: 0;
+	padding-top: 100px;
+}
+
+.block1 p{
+	color: white;
+	font-size: 22px;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.block1 ul{
+	color: white;
+	font-size: 18px;
+	float: left;
+	padding-left: 43%;
+	margin-top: 0;
+}
+
+.block1{
+	margin-top: 0;
+	height: 500px;
+	background-color: #58C9A0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.block2{
+	margin-top: -20px;
+	text-align: center;
+	background-color: gold;
+	height: 500px;
+}
+
+.block2 h2{
+	padding-top: 15px;
+}
+
+.block3{
+	margin-top: -20px;
+	background-color: lightskyblue; /*#edeef0*/
+	text-align: center;
+}
+
+.block3 h3{
+	padding-top: 15px;
+}
+
+.block3 p{
+	font-weight:bold;
+}
+
+.block4{
+	text-align: center;
+	background-color: greenyellow;
+	height: 500px;
+}
+
+.block4 p{
+	margin-top: 0;
+	padding-top: 15px;
+	font-weight:bold;
+	font-size: 20px;
 }
